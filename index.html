@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartByteKC | IT Consulting & Smart Home Solutions</title>
+    <meta name="description" content="Friendly, expert IT consulting, security, and smart home solutions for Kansas City. Network, security cameras, AV, and tech support.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primaryDark: '#1D1D1F',
+                        primaryBlue: '#0071E3',
+                        accentGreen: '#15803D',
+                        lightGray: '#F5F5F7',
+                        mutedGray: '#6E6E73',
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;700;800&family=Inter:wght@400;500&display=swap');
+    </style>
+</head>
+<body class="bg-white text-primaryDark font-sans antialiased">
+
+    <!-- Navigation -->
+    <nav class="flex items-center justify-between px-6 py-4 bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-lightGray">
+        <div class="text-2xl font-extrabold tracking-tighter">SmartByte<span class="text-primaryBlue">KC</span></div>
+        <div class="flex items-center gap-6">
+            <a href="tel:+19137035643" class="hidden md:flex items-center gap-2 text-accentGreen font-semibold hover:text-green-700 transition">
+                <span class="text-lg">(913) 703-5643</span>
+            </a>
+            <a href="#contact" class="bg-primaryDark text-white px-5 py-2 rounded-full font-medium hover:bg-primaryBlue transition">Get Estimate</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="py-20 md:py-32 px-6 text-center">
+        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter mb-6">Smart Technology.<br/>Simplified.</h1>
+        <p class="text-xl md:text-2xl text-mutedGray max-w-2xl mx-auto mb-10">Expert IT, Security, and Audio/Video solutions for Kansas City homes and businesses.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a href="tel:+19137035643" class="w-full sm:w-auto bg-accentGreen text-white text-lg font-bold px-8 py-4 rounded-full shadow-lg hover:bg-green-700 transition">Call Now: (913) 703-5643</a>
+            <a href="#contact" class="w-full sm:w-auto bg-lightGray text-primaryDark text-lg font-semibold px-8 py-4 rounded-full hover:bg-gray-200 transition">Request Estimate</a>
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section class="py-20 bg-lightGray px-6">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-4xl font-bold tracking-tight mb-16 text-center">Our Services</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Network & Security -->
+                <article class="bg-white p-8 rounded-3xl shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1558494949-ef010bbda319?auto=format&fit=crop&q=80&w=600" alt="Networking hardware and cabling" class="w-full h-48 object-cover rounded-2xl mb-6">
+                    <h3 class="text-2xl font-bold mb-3">Network & Security</h3>
+                    <p class="text-mutedGray">Robust Wi-Fi, Cat6 cabling, security cameras, and door access systems for complete peace of mind.</p>
+                </article>
+                <!-- AV/Smart Home -->
+                <article class="bg-white p-8 rounded-3xl shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1593694364767-8444b62d3a1f?auto=format&fit=crop&q=80&w=600" alt="Home theater system" class="w-full h-48 object-cover rounded-2xl mb-6">
+                    <h3 class="text-2xl font-bold mb-3">Audio & Video</h3>
+                    <p class="text-mutedGray">Professional TV mounting, high-fidelity home speakers, and custom movie theater experiences tailored to your space.</p>
+                </article>
+                <!-- Tech Support -->
+                <article class="bg-white p-8 rounded-3xl shadow-sm">
+                    <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&q=80&w=600" alt="Tech support engineer working" class="w-full h-48 object-cover rounded-2xl mb-6">
+                    <h3 class="text-2xl font-bold mb-3">Tech Support</h3>
+                    <p class="text-mutedGray">Professional troubleshooting and hands-on guidance. We don't just fix it; we make sure you understand it.</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- About/Differentiator -->
+    <section class="py-20 px-6 max-w-4xl mx-auto">
+        <h2 class="text-4xl font-bold tracking-tight mb-8 text-center">The SmartByteKC Difference</h2>
+        <p class="text-xl text-mutedGray text-center leading-relaxed">
+            I believe that technology should empower you, not confuse you. As an engineer with a background in control systems, I approach every project with a systematic, professional focus. But more importantly, I am a partner in your success. Whether it's a complex commercial network or home Wi-Fi, I take the time to teach you the details in a way that makes sense, ensuring you are never left in the dark.
+        </p>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-primaryDark text-white px-6">
+        <div class="max-w-2xl mx-auto text-center">
+            <h2 class="text-4xl font-bold mb-6">Ready to get started?</h2>
+            <p class="text-xl text-gray-400 mb-10">Give me a call to discuss your project directly, or fill out the form below and I'll be in touch.</p>
+            
+            <a href="tel:+19137035643" class="block text-4xl md:text-5xl font-extrabold text-accentGreen mb-12 hover:text-white transition">(913) 703-5643</a>
+
+            <form class="bg-white p-8 rounded-3xl text-left" action="#" method="POST">
+                <div class="mb-4">
+                    <label class="block text-primaryDark font-semibold mb-2" for="name">Name</label>
+                    <input class="w-full p-3 rounded-xl border border-gray-300 text-primaryDark" type="text" id="name" name="name" required>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-primaryDark font-semibold mb-2" for="phone">Phone</label>
+                    <input class="w-full p-3 rounded-xl border border-gray-300 text-primaryDark" type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="mb-6">
+                    <label class="block text-primaryDark font-semibold mb-2" for="interest">How can I help?</label>
+                    <select class="w-full p-3 rounded-xl border border-gray-300 text-primaryDark" id="interest" name="interest">
+                        <option>Network & Security</option>
+                        <option>Audio & Video</option>
+                        <option>Tech Support</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full bg-primaryBlue text-white font-bold py-4 rounded-xl hover:bg-blue-700 transition">Request Estimate</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-10 text-center text-mutedGray text-sm">
+        &copy; 2025 SmartByteKC. Serving the Kansas City Metro Area.
+    </footer>
+
+</body>
+</html>
