@@ -1,0 +1,79 @@
+---
+import { Phone, Mail, MapPin, Cpu, ShieldCheck } from 'lucide-astro';
+---
+
+<footer id="contact" class="bg-dark text-white pt-16 pb-12 border-t border-gray-800">
+	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+		<div class="grid grid-cols-1 md:grid-cols-4 gap-10 mb-16">
+
+			<!-- Column 1: Brand -->
+			<div class="md:col-span-2 space-y-4">
+				<a href="/" class="flex items-center gap-2.5">
+					<div class="w-10 h-10 rounded-xl bg-brand-700 text-white flex items-center justify-center">
+						<Cpu class="w-6 h-6" />
+					</div>
+					<span class="font-heading font-extrabold text-2xl tracking-tight text-white">
+						SmartByte<span class="text-brand-500">KC</span>
+					</span>
+				</a>
+				<p class="text-gray-400 text-sm max-w-md leading-relaxed">
+					Friendly, expert IT consulting, network security, audio/video, and smart support for homes and commercial spaces across the Kansas City metro.
+				</p>
+				<div class="pt-2 flex items-center gap-2 text-xs font-semibold text-brand-500 bg-dark-surface px-3 py-1.5 rounded-full w-max">
+					<ShieldCheck class="w-4 h-4 text-brand-500" />
+					<span>Licensed & Insured Local Electrical / IT Engineering</span>
+				</div>
+			</div>
+
+			<!-- Column 2: Quick Links -->
+			<div class="space-y-3">
+				<h4 class="font-heading font-bold text-sm uppercase tracking-wider text-gray-400">Services</h4>
+				<ul class="space-y-2 text-sm text-gray-300">
+					<li><a href="#services" class="hover:text-brand-500 transition-colors">Network & Security</a></li>
+					<li><a href="#services" class="hover:text-brand-500 transition-colors">Audio & Video Setup</a></li>
+					<li><a href="#services" class="hover:text-brand-500 transition-colors">Tech Support & Troubleshooting</a></li>
+					<li><a href="#services" class="hover:text-brand-500 transition-colors">Commercial IT Infrastructure</a></li>
+					<li><a href="#estimator" class="hover:text-brand-500 transition-colors">Instant Project Estimator</a></li>
+				</ul>
+			</div>
+
+			<!-- Column 3: Contact & Service Area -->
+			<div class="space-y-3">
+				<h4 class="font-heading font-bold text-sm uppercase tracking-wider text-gray-400">Contact Us</h4>
+				<div class="space-y-3 text-sm text-gray-300">
+					<a href="tel:+19137035643" class="flex items-center gap-3 text-brand-500 font-bold hover:underline">
+						<Phone class="w-4 h-4 shrink-0 text-brand-500" />
+						<span>(913) 703-5643</span>
+					</a>
+					<a href="mailto:VinceDeutschmann@gmail.com" class="flex items-center gap-3 hover:text-white transition-colors">
+						<Mail class="w-4 h-4 shrink-0 text-brand-500" />
+						<span>VinceDeutschmann@gmail.com</span>
+					</a>
+					<div class="flex items-start gap-3">
+						<MapPin class="w-4 h-4 shrink-0 text-brand-500 mt-1" />
+						<span class="text-xs text-gray-400">Serving Overland Park, Olathe, KCMO, Lee's Summit, Shawnee & Greater KC Metro</span>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="pt-8 border-t border-gray-800/80 flex flex-col sm:flex-row items-center justify-between text-xs text-gray-500 gap-4">
+			<p>&copy; {new Date().getFullYear()} SmartByteKC / SmartByte Group, LLC. All rights reserved.</p>
+			<div class="flex items-center gap-6">
+				<a href="#services" class="hover:text-gray-400">Services</a>
+				<a href="#estimator" class="hover:text-gray-400">Interactive Estimator</a>
+				<a href="#contact" class="hover:text-gray-400">Contact</a>
+			</div>
+		</div>
+	</div>
+</footer>
+
+<!-- Floating Call Button for Mobile -->
+<a 
+	href="tel:+19137035643" 
+	class="md:hidden fixed bottom-6 right-6 z-50 w-14 h-14 bg-brand-700 text-white rounded-full flex items-center justify-center shadow-2xl border-2 border-white/20 active:scale-95 transition-all"
+	aria-label="Call SmartByteKC"
+>
+	<Phone class="w-6 h-6" />
+</a>

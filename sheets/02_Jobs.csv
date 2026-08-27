@@ -1,0 +1,3 @@
+Job ID,Client ID,Job Title,Service Line,Description,Status,Priority,Scheduled Date,Start Date,End Date,Estimated Hours,Actual Hours,Estimated Cost,Actual Cost,Quoted Amount,Invoiced Amount,Paid Amount,Assigned Tech,Notes,Created Date,Updated Date
+J-001,C-001,Server Room Cleanup,Break-Fix,"Clean up cabling, label ports, document rack",Lead,High,,,,,,,,,,,,,2026-01-26,2026-01-26
+J-002,C-002,Monthly Patch Management,Managed Services,"Apply OS updates, verify backups, report",Scheduled,Medium,2026-02-01,,,,,,,,,,,2026-01-26,2026-01-26

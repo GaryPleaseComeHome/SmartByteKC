@@ -1,0 +1,4 @@
+Line Item ID,Invoice ID,Description,Quantity,Unit Price,Line Total,Service Line,Taxable
+LI-001,INV-001,"On-site labor - Server room cleanup (hrs)",4,150,600,Break-Fix,TRUE
+LI-002,INV-001,"Cable labels & ties",1,45,45,Break-Fix,TRUE
+LI-003,INV-002,"Monthly managed services - February 2026",1,500,500,Managed Services,FALSE

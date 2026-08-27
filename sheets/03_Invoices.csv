@@ -1,0 +1,3 @@
+Invoice ID,Job ID,Client ID,Invoice Number,Date Issued,Due Date,Status,Billing Method,Deposit % (if 50/50),Milestone 1 % (if milestone),Milestone 2 % (if milestone),Milestone 3 % (if milestone),Subtotal,Tax Rate,Tax Amount,Total Amount,Amount Paid,Balance Due,Payment Terms (Days),Notes,Date Paid
+INV-001,J-001,C-001,SBKC-2026-0001,2026-01-27,2026-02-11,Draft,Fixed Price,,,,,0,0.0825,0,0,0,0,Net 15,, 
+INV-002,J-002,C-002,SBKC-2026-0002,2026-02-01,2026-03-03,Scheduled,Recurring Retainer,,,,,0,0.0825,0,0,0,0,Net 30,,

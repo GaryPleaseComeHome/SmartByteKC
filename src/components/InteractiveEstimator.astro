@@ -1,0 +1,278 @@
+---
+import { Calculator, CheckCircle2, Shield, Phone, Send, Sparkles } from 'lucide-astro';
+---
+
+<section id="estimator" class="py-20 lg:py-32 bg-white">
+	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+		<div class="text-center max-w-3xl mx-auto">
+			<span class="text-xs sm:text-sm font-bold uppercase tracking-wider text-brand-700 bg-brand-50 border border-brand-200 px-3.5 py-1 rounded-full">
+				Interactive Tool
+			</span>
+			<h2 class="mt-4 font-heading text-3xl sm:text-5xl font-extrabold text-dark tracking-tight">
+				Instant Project Estimator
+			</h2>
+			<p class="mt-4 text-lg text-grayMuted">
+				Select your project details below for an instant estimated scope and budget breakdown.
+			</p>
+		</div>
+
+		<div class="mt-12 max-w-4xl mx-auto bg-grayLight rounded-3xl p-6 sm:p-10 border border-gray-200 shadow-sm">
+			<!-- Estimator Steps Container -->
+			<div class="space-y-8">
+
+				<!-- Step 1: Property Type -->
+				<div>
+					<label class="block font-heading text-lg font-bold text-dark mb-3">1. Select Property Type</label>
+					<div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+						<button type="button" data-property="residential" class="prop-btn active p-4 rounded-2xl border-2 border-brand-700 bg-white text-left transition-all">
+							<div class="font-bold text-dark text-base">Residential Home</div>
+							<div class="text-xs text-grayMuted mt-1">Single family, condo, townhome</div>
+						</button>
+						<button type="button" data-property="commercial" class="prop-btn p-4 rounded-2xl border-2 border-gray-200 bg-white text-left transition-all hover:border-brand-400">
+							<div class="font-bold text-dark text-base">Commercial / Business</div>
+							<div class="text-xs text-grayMuted mt-1">Office, retail, shop, warehouse</div>
+						</button>
+						<button type="button" data-property="custom" class="prop-btn col-span-2 sm:col-span-1 p-4 rounded-2xl border-2 border-gray-200 bg-white text-left transition-all hover:border-brand-400">
+							<div class="font-bold text-dark text-base">Consultation / Audit</div>
+							<div class="text-xs text-grayMuted mt-1">Wi-Fi audit, repair, tech support</div>
+						</button>
+					</div>
+				</div>
+
+				<!-- Step 2: Service Selection -->
+				<div>
+					<label class="block font-heading text-lg font-bold text-dark mb-3">2. Select Project Options</label>
+					<div class="space-y-3">
+
+						<!-- Service Item: Wi-Fi -->
+						<div class="p-4 rounded-2xl bg-white border border-gray-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+							<div>
+								<div class="font-bold text-dark">Wi-Fi 6E/7 System Upgrade</div>
+								<div class="text-xs text-grayMuted">Mesh access points, clean coverage, zero dead zones</div>
+							</div>
+							<div class="flex items-center gap-3">
+								<span class="text-xs font-semibold text-grayMuted">$250 - $600</span>
+								<input type="checkbox" id="item-wifi" class="calc-check w-5 h-5 accent-brand-700 rounded" data-price-min="250" data-price-max="600" data-name="Wi-Fi Mesh Setup" />
+							</div>
+						</div>
+
+						<!-- Service Item: Cat6 Drops -->
+						<div class="p-4 rounded-2xl bg-white border border-gray-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+							<div>
+								<div class="font-bold text-dark">Cat6 Ethernet Drops</div>
+								<div class="text-xs text-grayMuted">Hardwired ethernet for PCs, gaming, access points, TVs</div>
+							</div>
+							<div class="flex items-center gap-3">
+								<label for="qty-cat6" class="text-xs text-grayMuted">Qty:</label>
+								<select id="qty-cat6" class="calc-qty p-2 rounded-lg border border-gray-300 text-sm font-semibold" data-price-min="120" data-price-max="180" data-name="Cat6 Ethernet Drops">
+									<option value="0">0 drops</option>
+									<option value="1">1 drop ($120-180)</option>
+									<option value="2">2 drops ($240-360)</option>
+									<option value="4">4 drops ($480-720)</option>
+									<option value="8">8+ drops (Custom Quote)</option>
+								</select>
+							</div>
+						</div>
+
+						<!-- Service Item: TV Mounting -->
+						<div class="p-4 rounded-2xl bg-white border border-gray-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+							<div>
+								<div class="font-bold text-dark">TV Mounting & Concealed Cabling</div>
+								<div class="text-xs text-grayMuted">Wall mount installation with in-wall wire concealment</div>
+							</div>
+							<div class="flex items-center gap-3">
+								<label for="qty-tv" class="text-xs text-grayMuted">Qty:</label>
+								<select id="qty-tv" class="calc-qty p-2 rounded-lg border border-gray-300 text-sm font-semibold" data-price-min="150" data-price-max="250" data-name="TV Mount & Cable Concealment">
+									<option value="0">0 TVs</option>
+									<option value="1">1 TV ($150-250)</option>
+									<option value="2">2 TVs ($300-500)</option>
+									<option value="3">3+ TVs ($450+)</option>
+								</select>
+							</div>
+						</div>
+
+						<!-- Service Item: Security Cameras -->
+						<div class="p-4 rounded-2xl bg-white border border-gray-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+							<div>
+								<div class="font-bold text-dark">4K IP Security Camera System</div>
+								<div class="text-xs text-grayMuted">Power-over-Ethernet (PoE) cameras + local NVR storage</div>
+							</div>
+							<div class="flex items-center gap-3">
+								<label for="qty-cam" class="text-xs text-grayMuted">Cameras:</label>
+								<select id="qty-cam" class="calc-qty p-2 rounded-lg border border-gray-300 text-sm font-semibold" data-price-min="220" data-price-max="320" data-name="4K Security Cameras">
+									<option value="0">0 cameras</option>
+									<option value="2">2 Cameras ($440-640)</option>
+									<option value="4">4 Cameras ($880-1280)</option>
+									<option value="8">8 Cameras (Commercial Setup)</option>
+								</select>
+							</div>
+						</div>
+
+						<!-- Service Item: Tech Support Hours -->
+						<div class="p-4 rounded-2xl bg-white border border-gray-200 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+							<div>
+								<div class="font-bold text-dark">Tech Support & On-Site Audit</div>
+								<div class="text-xs text-grayMuted">Diagnostic, Wi-Fi audit, rack cleanup, smart home setup</div>
+							</div>
+							<div class="flex items-center gap-3">
+								<input type="checkbox" id="item-support" class="calc-check w-5 h-5 accent-brand-700 rounded" data-price-min="95" data-price-max="190" data-name="On-site Tech Support" />
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<!-- Estimate Calculation Summary Banner -->
+				<div class="bg-brand-900 text-white rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-md">
+					<div>
+						<div class="text-xs uppercase font-bold text-brand-500 tracking-wider">Estimated Project Budget Range</div>
+						<div id="estimate-price-display" class="font-heading text-3xl sm:text-4xl font-extrabold text-white mt-1">
+							$0
+						</div>
+						<div id="estimate-summary-text" class="text-xs text-gray-300 mt-1">
+							Select options above to calculate instant estimate
+						</div>
+					</div>
+					<a href="tel:+19137035643" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-brand-500 hover:bg-brand-600 text-white font-bold px-6 py-3.5 rounded-full transition-all text-sm">
+						<Phone class="w-4 h-4" />
+						Call (913) 703-5643
+					</a>
+				</div>
+
+				<!-- Lead Capture Form -->
+				<div class="bg-white rounded-2xl p-6 sm:p-8 border border-gray-200">
+					<h3 class="font-heading text-xl font-bold text-dark mb-2">Request Your Official Lock-In Quote</h3>
+					<p class="text-sm text-grayMuted mb-6">Send your estimate details to Vince at SmartByteKC for prompt confirmation.</p>
+
+					<form id="estimator-lead-form" class="space-y-4">
+						<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+							<div>
+								<label class="block text-xs font-bold text-dark uppercase mb-1" for="est-name">Name *</label>
+								<input type="text" id="est-name" required placeholder="John Smith" class="w-full p-3 rounded-xl border border-gray-300 text-sm focus:border-brand-700 focus:outline-none" />
+							</div>
+							<div>
+								<label class="block text-xs font-bold text-dark uppercase mb-1" for="est-phone">Phone *</label>
+								<input type="tel" id="est-phone" required placeholder="(913) 555-0199" class="w-full p-3 rounded-xl border border-gray-300 text-sm focus:border-brand-700 focus:outline-none" />
+							</div>
+						</div>
+						<div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+							<div>
+								<label class="block text-xs font-bold text-dark uppercase mb-1" for="est-email">Email</label>
+								<input type="email" id="est-email" placeholder="john@example.com" class="w-full p-3 rounded-xl border border-gray-300 text-sm focus:border-brand-700 focus:outline-none" />
+							</div>
+							<div>
+								<label class="block text-xs font-bold text-dark uppercase mb-1" for="est-zip">KC Neighborhood / ZIP</label>
+								<input type="text" id="est-zip" placeholder="e.g. Overland Park, KCMO, Olathe" class="w-full p-3 rounded-xl border border-gray-300 text-sm focus:border-brand-700 focus:outline-none" />
+							</div>
+						</div>
+						<div>
+							<label class="block text-xs font-bold text-dark uppercase mb-1" for="est-notes">Project Details / Notes</label>
+							<textarea id="est-notes" rows="3" placeholder="Tell us any specific details about your home, business, or preferred timeline..." class="w-full p-3 rounded-xl border border-gray-300 text-sm focus:border-brand-700 focus:outline-none"></textarea>
+						</div>
+
+						<button type="submit" class="w-full bg-brand-700 hover:bg-brand-600 text-white font-heading font-bold py-4 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 text-base">
+							<Send class="w-5 h-5" />
+							<span>Submit Estimate Request</span>
+						</button>
+					</form>
+
+					<!-- Form Submission Confirmation Alert -->
+					<div id="est-success-alert" class="hidden mt-4 p-6 bg-brand-50 border border-brand-200 rounded-2xl text-center">
+						<CheckCircle2 class="w-12 h-12 text-brand-700 mx-auto mb-3" />
+						<h4 class="font-heading text-lg font-bold text-dark">Estimate Request Submitted!</h4>
+						<p class="text-sm text-grayMuted mt-1">Thank you! Vince from SmartByteKC will review your project details and get back to you shortly.</p>
+						<a href="tel:+19137035643" class="mt-4 inline-flex items-center gap-2 bg-brand-700 text-white font-bold text-xs px-5 py-2.5 rounded-full">
+							Need instant response? Call (913) 703-5643
+						</a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+</section>
+
+<script>
+	let selectedProperty = 'residential';
+
+	// Property Buttons
+	const propBtns = document.querySelectorAll('.prop-btn');
+	propBtns.forEach(btn => {
+		btn.addEventListener('click', () => {
+			propBtns.forEach(b => {
+				b.classList.remove('border-brand-700');
+				b.classList.add('border-gray-200');
+			});
+			btn.classList.remove('border-gray-200');
+			btn.classList.add('border-brand-700');
+			selectedProperty = btn.getAttribute('data-property') || 'residential';
+			updateCalculator();
+		});
+	});
+
+	// Checkboxes & Selects
+	const calcChecks = document.querySelectorAll('.calc-check');
+	const calcQtys = document.querySelectorAll('.calc-qty');
+
+	calcChecks.forEach(c => c.addEventListener('change', updateCalculator));
+	calcQtys.forEach(q => q.addEventListener('change', updateCalculator));
+
+	function updateCalculator() {
+		let minTotal = 0;
+		let maxTotal = 0;
+		let selectedNames = [];
+
+		calcChecks.forEach(check => {
+			if ((check as HTMLInputElement).checked) {
+				const min = parseInt(check.getAttribute('data-price-min') || '0');
+				const max = parseInt(check.getAttribute('data-price-max') || '0');
+				minTotal += min;
+				maxTotal += max;
+				selectedNames.push(check.getAttribute('data-name'));
+			}
+		});
+
+		calcQtys.forEach(select => {
+			const qty = parseInt((select as HTMLSelectElement).value);
+			if (qty > 0) {
+				const minUnit = parseInt(select.getAttribute('data-price-min') || '0');
+				const maxUnit = parseInt(select.getAttribute('data-price-max') || '0');
+				minTotal += minUnit * qty;
+				maxTotal += maxUnit * qty;
+				selectedNames.push(`${qty}x ${select.getAttribute('data-name')}`);
+			}
+		});
+
+		const display = document.getElementById('estimate-price-display');
+		const summary = document.getElementById('estimate-summary-text');
+
+		if (minTotal === 0) {
+			if (display) display.innerText = '$0';
+			if (summary) summary.innerText = 'Select options above to calculate instant estimate';
+		} else {
+			if (display) display.innerText = `$${minTotal.toLocaleString()} - $${maxTotal.toLocaleString()}`;
+			if (summary) summary.innerText = `Includes: ${selectedNames.join(', ')}`;
+		}
+	}
+
+	// Form Submission Handler
+	const form = document.getElementById('estimator-lead-form');
+	const successAlert = document.getElementById('est-success-alert');
+
+	if (form) {
+		form.addEventListener('submit', (e) => {
+			e.preventDefault();
+			const name = (document.getElementById('est-name') as HTMLInputElement).value;
+			const phone = (document.getElementById('est-phone') as HTMLInputElement).value;
+
+			if (!name || !phone) {
+				alert('Please fill out your Name and Phone Number.');
+				return;
+			}
+
+			// Hide form & show confirmation
+			form.classList.add('hidden');
+			if (successAlert) successAlert.classList.remove('hidden');
+		});
+	}
+</script>
