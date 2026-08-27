@@ -3,71 +3,71 @@ import Logo from './Logo.astro';
 import { Phone, Menu, X, ArrowRight } from 'lucide-astro';
 ---
 
-<header class="sticky top-0 z-50 bg-slate-950/85 backdrop-blur-xl border-b border-slate-800/80 transition-all duration-300">
-	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
-		<!-- Brand Logo -->
-		<a href="/" class="flex items-center gap-3 group">
-			<div class="w-10 h-10 rounded-xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center group-hover:scale-105 transition-transform duration-200 border border-emerald-500/20 shadow-glow">
-				<Logo class="w-6 h-6" />
+<header class="sticky top-0 z-50 bg-slate-950/90 backdrop-blur-xl border-b border-slate-800/80 transition-all duration-300">
+	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 sm:h-24 flex items-center justify-between">
+		<!-- Brand Logo (Bigger & Prominent) -->
+		<a href="/" class="flex items-center gap-3.5 group">
+			<div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center group-hover:scale-105 transition-transform duration-200 border border-emerald-500/30 shadow-glow shrink-0">
+				<Logo class="w-8 h-8 sm:w-10 sm:h-10" />
 			</div>
-			<span class="font-heading font-extrabold text-2xl tracking-tight text-white">
+			<span class="font-heading font-extrabold text-2xl sm:text-3xl tracking-tight text-white">
 				SmartByte<span class="text-emerald-400">KC</span>
 			</span>
 		</a>
 
 		<!-- Desktop Nav Links -->
-		<nav class="hidden md:flex items-center gap-8 font-medium text-sm text-slate-300">
+		<nav class="hidden md:flex items-center gap-8 font-semibold text-base text-slate-300">
 			<a href="#services" class="hover:text-emerald-400 transition-colors">Services</a>
 			<a href="#why" class="hover:text-emerald-400 transition-colors">Why Us</a>
 			<a href="#contact" class="hover:text-emerald-400 transition-colors">Contact</a>
 		</nav>
 
 		<!-- Desktop CTAs -->
-		<div class="hidden md:flex items-center gap-5">
+		<div class="hidden md:flex items-center gap-6">
 			<a 
 				href="tel:+19137035643" 
-				class="flex items-center gap-2 text-emerald-400 font-semibold text-sm hover:text-emerald-300 transition-colors"
+				class="flex items-center gap-2.5 text-emerald-400 font-bold text-base hover:text-emerald-300 transition-colors"
 				aria-label="Call SmartByteKC"
 			>
-				<Phone class="w-4 h-4" />
+				<Phone class="w-5 h-5" />
 				<span>(913) 703-5643</span>
 			</a>
 			<a 
 				href="#contact" 
-				class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-sm font-bold px-5 py-2.5 rounded-full transition-all duration-200 transform hover:-translate-y-0.5 shadow-glow hover:shadow-glow-lg flex items-center gap-2"
+				class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-base font-extrabold px-6 py-3 rounded-full transition-all duration-200 transform hover:-translate-y-0.5 shadow-glow hover:shadow-glow-lg flex items-center gap-2"
 			>
 				<span>Contact Us</span>
-				<ArrowRight class="w-4 h-4" />
+				<ArrowRight class="w-5 h-5" />
 			</a>
 		</div>
 
 		<!-- Mobile Menu Button -->
 		<button 
 			id="mobile-menu-toggle" 
-			class="md:hidden p-2 rounded-lg text-slate-300 hover:bg-slate-800 transition-colors"
+			class="md:hidden p-2.5 rounded-xl text-slate-300 hover:bg-slate-800 transition-colors"
 			aria-label="Toggle menu"
 		>
-			<Menu class="w-6 h-6" id="menu-icon" />
-			<X class="w-6 h-6 hidden" id="close-icon" />
+			<Menu class="w-7 h-7" id="menu-icon" />
+			<X class="w-7 h-7 hidden" id="close-icon" />
 		</button>
 	</div>
 
 	<!-- Mobile Drawer -->
-	<div id="mobile-drawer" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-4 pt-3 pb-6 space-y-3">
-		<a href="#services" class="mobile-nav-link block py-2 text-base font-medium text-slate-200 hover:text-emerald-400">Services</a>
-		<a href="#why" class="mobile-nav-link block py-2 text-base font-medium text-slate-200 hover:text-emerald-400">Why Us</a>
-		<a href="#contact" class="mobile-nav-link block py-2 text-base font-medium text-slate-200 hover:text-emerald-400">Contact</a>
-		<div class="pt-4 border-t border-slate-800 flex flex-col gap-3">
+	<div id="mobile-drawer" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-5 pt-4 pb-8 space-y-4">
+		<a href="#services" class="mobile-nav-link block py-2.5 text-lg font-bold text-slate-200 hover:text-emerald-400">Services</a>
+		<a href="#why" class="mobile-nav-link block py-2.5 text-lg font-bold text-slate-200 hover:text-emerald-400">Why Us</a>
+		<a href="#contact" class="mobile-nav-link block py-2.5 text-lg font-bold text-slate-200 hover:text-emerald-400">Contact</a>
+		<div class="pt-4 border-t border-slate-800 flex flex-col gap-3.5">
 			<a 
 				href="tel:+19137035643" 
-				class="flex items-center justify-center gap-2 w-full bg-emerald-500/10 text-emerald-400 font-bold py-3 rounded-xl border border-emerald-500/20"
+				class="flex items-center justify-center gap-2.5 w-full bg-emerald-500/10 text-emerald-400 font-extrabold py-3.5 rounded-xl border border-emerald-500/30 text-base"
 			>
 				<Phone class="w-5 h-5" />
 				Call (913) 703-5643
 			</a>
 			<a 
 				href="#contact" 
-				class="w-full text-center bg-emerald-500 text-slate-950 font-bold py-3 rounded-xl hover:bg-emerald-400 shadow-glow"
+				class="w-full text-center bg-emerald-500 text-slate-950 font-extrabold py-3.5 rounded-xl hover:bg-emerald-400 shadow-glow text-base"
 			>
 				Request Consultation
 			</a>
