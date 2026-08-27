@@ -1,61 +1,14 @@
 ---
 interface Props {
-	class?: string;
+  class?: string;
 }
-
-const { class: className = "w-9 h-9" } = Astro.props;
+const { class: className } = Astro.props;
 ---
-
-<svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" class={className}>
-	<!-- Sideways Brain Outer Profile -->
-	<!-- Frontal Lobe (Left) -> Top Cerebrum -> Back Occipital -> Cerebellum (Bottom Right) -->
-	<path 
-		d="M 25 41 
-		   C 18 41 13 35 13 28 
-		   C 13 20 19 13 27 11 
-		   C 36 9 47 12 51 20 
-		   C 54 26 53 32 49 36 
-		   C 51 40 48 45 42 45 
-		   C 37 45 35 43 35 41" 
-		stroke="currentColor" 
-		stroke-width="3.5" 
-		stroke-linecap="round" 
-		stroke-linejoin="round"
-	/>
-
-	<!-- Brain Interior Sulci / Traces (3 clean curves suggesting neural lobes) -->
-	<path 
-		d="M 23 27 C 28 27 34 25 44 22" 
-		stroke="currentColor" 
-		stroke-width="2.5" 
-		stroke-linecap="round"
-	/>
-	<path 
-		d="M 33 12 C 32 19 28 26 24 33" 
-		stroke="currentColor" 
-		stroke-width="2.5" 
-		stroke-linecap="round"
-	/>
-	<path 
-		d="M 42 16 C 41 22 43 30 48 33" 
-		stroke="currentColor" 
-		stroke-width="2.5" 
-		stroke-linecap="round"
-	/>
-
-	<!-- Brain Stem Transition to USB -->
-	<path 
-		d="M 25 41 L 25 47 L 35 47 L 35 41" 
-		stroke="currentColor" 
-		stroke-width="3.5" 
-		stroke-linecap="round" 
-		stroke-linejoin="round"
-	/>
-
-	<!-- Distinct USB Type-A Plug Shell (Metal Connector) -->
-	<rect x="23" y="47" width="14" height="11" rx="2" fill="currentColor" />
-	
-	<!-- USB Square Window Cutouts (Classic USB holes) -->
-	<rect x="25.5" y="50" width="3" height="4" rx="0.5" fill="#0B0F19" />
-	<rect x="31.5" y="50" width="3" height="4" rx="0.5" fill="#0B0F19" />
+<svg class={className} viewBox="0 0 64 64" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+  <!-- Brain Profile (Sideways) -->
+  <path d="M44 16c-10 0-18 6-18 18s8 18 18 18 18-9 18-18-8-18-18-18z" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M44 22c-4 0-8 4-8 8s4 8 8 8 8-4 8-8-4-8-8-8z" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- USB Type-A Stem (Simplified) -->
+  <rect x="24" y="44" width="12" height="16" rx="2" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="28" y="48" width="4" height="6" rx="0.5" fill="currentColor"/>
 </svg>
