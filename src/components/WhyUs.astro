@@ -1,5 +1,5 @@
 ---
-import { ShieldCheck, Cpu, HeartHandshake, MapPin } from 'lucide-astro';
+import { HeartHandshake, Cpu, MapPin } from 'lucide-astro';
 
 const points = [
 	{
@@ -10,7 +10,7 @@ const points = [
 	{
 		icon: Cpu,
 		title: "Control Systems Discipline",
-		description: "Built on an engineering background in industrial control systems. We design with precision, plan for future upgrades, and install hardware that stands the test of time."
+		description: "Built on a background in control systems engineering. We design with precision, plan for future upgrades, and install hardware built to last."
 	},
 	{
 		icon: MapPin,
@@ -20,14 +20,14 @@ const points = [
 ];
 ---
 
-<section id="why" class="py-20 lg:py-32 bg-grayLight border-t border-gray-200/60">
+<section id="why" class="py-24 lg:py-32 bg-slate-900 border-b border-slate-800">
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 		<!-- Section Header -->
 		<div class="text-center max-w-3xl mx-auto">
-			<span class="text-xs sm:text-sm font-bold uppercase tracking-wider text-brand-700 bg-brand-50 border border-brand-200 px-3.5 py-1 rounded-full">
+			<span class="text-xs sm:text-sm font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3.5 py-1 rounded-full">
 				The SmartByteKC Difference
 			</span>
-			<h2 class="mt-4 font-heading text-3xl sm:text-5xl font-extrabold text-dark tracking-tight">
+			<h2 class="mt-4 font-heading text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
 				Tech that makes sense. Service you can count on.
 			</h2>
 		</div>
@@ -37,12 +37,12 @@ const points = [
 			{points.map((pt) => {
 				const IconComp = pt.icon;
 				return (
-					<div class="bg-white rounded-3xl p-8 border border-gray-200/80 shadow-sm hover:shadow-md transition-all duration-300">
-						<div class="w-12 h-12 rounded-2xl bg-brand-50 text-brand-700 flex items-center justify-center mb-6">
+					<div class="bg-slate-950/80 rounded-3xl p-8 border border-slate-800 shadow-sm hover:border-emerald-500/30 transition-all duration-300">
+						<div class="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-6 border border-emerald-500/20">
 							<IconComp class="w-6 h-6" />
 						</div>
-						<h3 class="font-heading text-xl font-bold text-dark mb-3">{pt.title}</h3>
-						<p class="text-grayMuted text-base leading-relaxed">{pt.description}</p>
+						<h3 class="font-heading text-xl font-bold text-white mb-3">{pt.title}</h3>
+						<p class="text-slate-400 text-base leading-relaxed">{pt.description}</p>
 					</div>
 				);
 			})}
