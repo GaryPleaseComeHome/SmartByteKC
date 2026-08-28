@@ -1,0 +1,279 @@
+/* ==========================================================================
+   SmartByteKC — Design Tokens as CSS Custom Properties
+   Version: 2.0 | Apple-level aesthetic | Premium yet human
+   ========================================================================== */
+
+/* ---- Color: Primary Neutrals ---- */
+:root {
+  --color-white: #FFFFFF;
+  --color-gray-50: #F5F5F7;
+  --color-gray-100: #E5E5EA;
+  --color-gray-300: #D1D1D6;
+  --color-gray-500: #86868B;
+  --color-gray-700: #48484A;
+  --color-gray-900: #1D1D1F;
+  --color-black: #000000;
+
+  /* ---- Color: Brand Accent (Emerald) ---- */
+  --color-emerald-400: #34D399;
+  --color-emerald-500: #10B981;
+  --color-emerald-600: #059669;
+  --color-emerald-900: #064E3B;
+
+  /* ---- Color: Semantic (Light Mode Default) ---- */
+  --color-text-primary: #1D1D1F;
+  --color-text-secondary: #48484A;
+  --color-text-tertiary: #86868B;
+  --color-text-inverse: #FFFFFF;
+
+  --color-border-subtle: #E5E5EA;
+  --color-border-focus: #10B981;
+
+  --color-surface: #FFFFFF;
+  --color-surface-elevated: #F5F5F7;
+  --color-overlay: rgba(29, 29, 31, 0.6);
+
+  --color-accent-primary: #10B981;
+  --color-accent-primary-hover: #059669;
+
+  --color-success: #15BE53;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+}
+
+/* ---- Dark Mode ---- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-text-primary: #FFFFFF;
+    --color-text-secondary: #A1A1AA;
+    --color-text-tertiary: #71717A;
+    --color-text-inverse: #1D1D1F;
+
+    --color-border-subtle: #272729;
+    --color-border-focus: #34D399;
+
+    --color-surface: #1D1D1F;
+    --color-surface-elevated: #272729;
+    --color-overlay: rgba(0, 0, 0, 0.7);
+
+    --color-accent-primary: #34D399;
+    --color-accent-primary-hover: #10B981;
+
+    --color-success: #22C55E;
+    --color-warning: #FBBF24;
+    --color-error: #F87171;
+  }
+}
+
+/* ---- Explicit Dark/Light Class Overrides (for manual toggle) ---- */
+[data-theme="dark"] {
+  --color-text-primary: #FFFFFF;
+  --color-text-secondary: #A1A1AA;
+  --color-text-tertiary: #71717A;
+  --color-text-inverse: #1D1D1F;
+
+  --color-border-subtle: #272729;
+  --color-border-focus: #34D399;
+
+  --color-surface: #1D1D1F;
+  --color-surface-elevated: #272729;
+  --color-overlay: rgba(0, 0, 0, 0.7);
+
+  --color-accent-primary: #34D399;
+  --color-accent-primary-hover: #10B981;
+
+  --color-success: #22C55E;
+  --color-warning: #FBBF24;
+  --color-error: #F87171;
+}
+
+[data-theme="light"] {
+  --color-text-primary: #1D1D1F;
+  --color-text-secondary: #48484A;
+  --color-text-tertiary: #86868B;
+  --color-text-inverse: #FFFFFF;
+
+  --color-border-subtle: #E5E5EA;
+  --color-border-focus: #10B981;
+
+  --color-surface: #FFFFFF;
+  --color-surface-elevated: #F5F5F7;
+  --color-overlay: rgba(29, 29, 31, 0.6);
+
+  --color-accent-primary: #10B981;
+  --color-accent-primary-hover: #059669;
+
+  --color-success: #15BE53;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+}
+
+/* ---- Typography: Font Families ---- */
+:root {
+  --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+}
+
+/* ---- Typography: Font Weights ---- */
+:root {
+  --weight-light: 300;
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+}
+
+/* ---- Typography: Fluid Type Scale (clamp) ---- */
+:root {
+  --text-display-hero: clamp(2.5rem, 6vw, 4.5rem);
+  --text-section-heading: clamp(2rem, 4vw, 3.5rem);
+  --text-card-heading: clamp(1.25rem, 2.5vw, 1.75rem);
+  --text-body-large: clamp(1.125rem, 1.5vw, 1.25rem);
+  --text-body: 1rem;
+  --text-body-small: 0.875rem;
+  --text-caption: 0.75rem;
+  --text-button: 1rem;
+  --text-code: 0.875rem;
+}
+
+/* ---- Typography: Line Heights ---- */
+:root {
+  --leading-tight: 1.05;
+  --leading-snug: 1.10;
+  --leading-card: 1.20;
+  --leading-body: 1.70;
+  --leading-body-small: 1.60;
+  --leading-caption: 1.50;
+  --leading-button: 1.00;
+  --leading-code: 1.80;
+}
+
+/* ---- Typography: Letter Spacing ---- */
+:root {
+  --tracking-tightest: -0.04em;
+  --tracking-tighter: -0.03em;
+  --tracking-tight: -0.02em;
+  --tracking-snug: -0.01em;
+  --tracking-normal: 0;
+  --tracking-wide: 0.05em;
+}
+
+/* ---- Spacing: Base Unit & Scale (4px base) ---- */
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  /* Component-specific */
+  --space-section-y: 96px;
+  --space-section-y-lg: 128px;
+  --space-container-x: 24px;
+  --space-container-x-lg: 32px;
+  --space-card-pad: 32px;
+  --space-card-pad-lg: 40px;
+  --space-card-gap: 24px;
+  --space-btn-x: 32px;
+  --space-btn-y: 16px;
+  --space-btn-gap: 12px;
+  --space-input-x: 16px;
+  --space-input-y: 12px;
+  --space-field-gap: 8px;
+  --space-nav-gap: 32px;
+}
+
+/* ---- Border Radius ---- */
+:root {
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+}
+
+/* ---- Shadows & Elevation ---- */
+:root {
+  --shadow-none: none;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08), 0 2px 4px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+  --shadow-xl: 0 24px 48px rgba(0, 0, 0, 0.16), 0 8px 16px rgba(0, 0, 0, 0.08);
+  --shadow-focus: 0 0 0 3px rgba(16, 185, 129, 0.4);
+}
+
+/* Dark mode shadows */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.4), 0 4px 8px rgba(0, 0, 0, 0.3);
+    --shadow-xl: 0 24px 48px rgba(0, 0, 0, 0.5), 0 8px 16px rgba(0, 0, 0, 0.4);
+    --shadow-focus: 0 0 0 3px rgba(52, 211, 153, 0.4);
+  }
+}
+
+[data-theme="dark"] {
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3), 0 2px 4px rgba(0, 0, 0, 0.2);
+  --shadow-lg: 0 12px 28px rgba(0, 0, 0, 0.4), 0 4px 8px rgba(0, 0, 0, 0.3);
+  --shadow-xl: 0 24px 48px rgba(0, 0, 0, 0.5), 0 8px 16px rgba(0, 0, 0, 0.4);
+  --shadow-focus: 0 0 0 3px rgba(52, 211, 153, 0.4);
+}
+
+/* ---- Motion: Easing Curves ---- */
+:root {
+  --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  --ease-snappy: cubic-bezier(0.2, 0.6, 0.2, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ---- Motion: Durations ---- */
+:root {
+  --duration-instant: 0ms;
+  --duration-fast: 150ms;
+  --duration-base: 200ms;
+  --duration-smooth: 300ms;
+  --duration-slow: 500ms;
+}
+
+/* ---- Breakpoints ---- */
+:root {
+  --bp-mobile: 640px;
+  --bp-tablet: 1024px;
+  --bp-desktop: 1440px;
+  --bp-wide: 1920px;
+}
+
+/* ---- Z-Index Scale ---- */
+:root {
+  --z-base: 1;
+  --z-sticky: 100;
+  --z-dropdown: 200;
+  --z-modal: 300;
+  --z-toast: 400;
+  --z-tooltip: 500;
+}
+
+/* ---- Iconography ---- */
+:root {
+  --icon-size-inline: 16px;
+  --icon-size-ui: 20px;
+  --icon-size-default: 24px;
+  --icon-size-feature: 32px;
+  --icon-size-hero: 48px;
+  --icon-stroke: 2px;
+}
+
+/* ---- Container Max Widths ---- */
+:root {
+  --container-sm: 640px;
+  --container-md: 1024px;
+  --container-lg: 1280px;
+  --container-xl: 1440px;
+}

@@ -1,0 +1,343 @@
+{
+  "$schema": "https://design-tokens.github.io/format/1.0/schema.json",
+  "version": "2.0",
+  "name": "SmartByteKC",
+  "description": "Design tokens for SmartByteKC premium IT services brand — Apple-level aesthetic, premium yet human voice",
+  "author": "Muse",
+  "lastUpdated": "2026-08-27",
+  "tokenSets": {
+    "core": {
+      "color": {
+        "white": {
+          "$type": "color",
+          "$value": "#FFFFFF",
+          "$description": "Pure white — page backgrounds, card surfaces"
+        },
+        "gray": {
+          "50": { "$type": "color", "$value": "#F5F5F7", "$description": "Light section backgrounds (Apple-style)" },
+          "100": { "$type": "color", "$value": "#E5E5EA", "$description": "Borders, dividers, disabled states" },
+          "300": { "$type": "color", "$value": "#D1D1D6", "$description": "Secondary borders, input borders" },
+          "500": { "$type": "color", "$value": "#86868B", "$description": "Placeholder text, secondary icons" },
+          "700": { "$type": "color", "$value": "#48484A", "$description": "Secondary text on light" },
+          "900": { "$type": "color", "$value": "#1D1D1F", "$description": "Primary text on light, dark button fills" }
+        },
+        "black": {
+          "$type": "color",
+          "$value": "#000000",
+          "$description": "Immersive section backgrounds"
+        },
+        "emerald": {
+          "400": { "$type": "color", "$value": "#34D399", "$description": "Primary interactive: links, focus rings, CTAs (light mode)" },
+          "500": { "$type": "color", "$value": "#10B981", "$description": "CTA backgrounds, active states (brand accent)" },
+          "600": { "$type": "color", "$value": "#059669", "$description": "Hover states, pressed states" },
+          "900": { "$type": "color", "$value": "#064E3B", "$description": "Dark section accent backgrounds" }
+        },
+        "success": {
+          "$type": "color",
+          "$value": { "light": "#15BE53", "dark": "#22C55E" },
+          "$description": "Success states, checkmarks"
+        },
+        "warning": {
+          "$type": "color",
+          "$value": { "light": "#F59E0B", "dark": "#FBBF24" },
+          "$description": "Warnings, pending states"
+        },
+        "error": {
+          "$type": "color",
+          "$value": { "light": "#EF4444", "dark": "#F87171" },
+          "$description": "Errors, destructive actions"
+        }
+      },
+      "color-semantic": {
+        "text": {
+          "primary": { "$type": "color", "$value": { "light": "#1D1D1F", "dark": "#FFFFFF" }, "$description": "Body text, headings" },
+          "secondary": { "$type": "color", "$value": { "light": "#48484A", "dark": "#A1A1AA" }, "$description": "Descriptions, captions" },
+          "tertiary": { "$type": "color", "$value": { "light": "#86868B", "dark": "#71717A" }, "$description": "Placeholders, metadata" },
+          "inverse": { "$type": "color", "$value": { "light": "#FFFFFF", "dark": "#1D1D1F" }, "$description": "Text on dark/colored backgrounds" }
+        },
+        "border": {
+          "subtle": { "$type": "color", "$value": { "light": "#E5E5EA", "dark": "#272729" }, "$description": "Card borders, dividers" },
+          "focus": { "$type": "color", "$value": { "light": "#10B981", "dark": "#34D399" }, "$description": "Focus rings, active inputs" }
+        },
+        "surface": {
+          "default": { "$type": "color", "$value": { "light": "#FFFFFF", "dark": "#1D1D1F" }, "$description": "Card backgrounds" },
+          "elevated": { "$type": "color", "$value": { "light": "#F5F5F7", "dark": "#272729" }, "$description": "Elevated cards, modals" },
+          "overlay": { "$type": "color", "$value": { "light": "rgba(29,29,31,0.6)", "dark": "rgba(0,0,0,0.7)" }, "$description": "Modal backdrops" }
+        },
+        "accent": {
+          "primary": { "$type": "color", "$value": { "light": "#10B981", "dark": "#34D399" }, "$description": "Primary brand accent — interactive only" },
+          "primary-hover": { "$type": "color", "$value": { "light": "#059669", "dark": "#10B981" }, "$description": "Hover state for primary accent" }
+        }
+      },
+      "typography": {
+        "fontFamilies": {
+          "sans": {
+            "$type": "fontFamily",
+            "$value": ["system-ui", "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Inter", "Roboto", "Helvetica Neue", "Arial", "sans-serif"],
+            "$description": "Primary UI font — system stack with Inter fallback"
+          },
+          "mono": {
+            "$type": "fontFamily",
+            "$value": ["ui-monospace", "SFMono-Regular", "SF Mono", "Menlo", "Monaco", "Consolas", "Liberation Mono", "Courier New", "monospace"],
+            "$description": "Monospace for code, technical specs"
+          }
+        },
+        "fontWeights": {
+          "light": { "$type": "fontWeight", "$value": 300, "$description": "Display hero only — whisper authority" },
+          "regular": { "$type": "fontWeight", "$value": 400, "$description": "Body text, most UI — workhorse" },
+          "medium": { "$type": "fontWeight", "$value": 500, "$description": "Buttons, emphasis, navigation" },
+          "semibold": { "$type": "fontWeight", "$value": 600, "$description": "Card headings, important labels" },
+          "bold": { "$type": "fontWeight", "$value": 700, "$description": "Logo wordmark, rare emphasis only" }
+        },
+        "typeScale": {
+          "displayHero": {
+            "$type": "typography",
+            "$value": {
+              "fontFamily": "{typography.fontFamilies.sans}",
+              "fontSize": "clamp(2.5rem, 6vw, 4.5rem)",
+              "fontWeight": "{typography.fontWeights.light}",
+              "lineHeight": 1.05,
+              "letterSpacing": "-0.04em"
+            },
+            "$description": "Maximum impact hero headlines"
+          },
+          "sectionHeading": {
+            "$type": "typography",
+            "$value": {
+              "fontFamily": "{typography.fontFamilies.sans}",
+              "fontSize": "clamp(2rem, 4vw, 3.5rem)",
+              "fontWeight": "{typography.fontWeights.regular}",
+              "lineHeight": 1.10,
+              "letterSpacing": "-0.03em"
+            },
+            "$description": "Feature section titles"
+          },
+          "cardHeading": {
+            "$type": "typography",
+            "$value": {
+              "fontFamily": "{typography.fontFamilies.sans}",
+              "fontSize": "clamp(1.25rem, 2.5vw, 1.75rem)",
+              "fontWeight": "{typography.fontWeights.semibold}",
+              "lineHeight": 1.20,
+              "letterSpacing": "-0.02em"
+            },
+            "$description": "Card and component headings"
+          },
+          "bodyLarge": {
+            "$type": "typography",
+            "$value": {
+              "fontFamily": "{typography.fontFamilies.sans}",
+              "fontSize": "clamp(1.125rem, 1.5vw, 1.25rem)",
+              "fontWeight": "{typography.fontWeights.regular}",
+              "lineHeight": 1.70,
+              "letterSpacing": "-0.01em"
+            },
+            "$description": "Lead paragraphs, intro text"
+          },
+          "body": {
+            "$type": "typography",
+            "$value": {
+              "fontFamily": "{typography.fontFamilies.sans}",
+              "fontSize": "1rem",
+              "fontWeight": "{typography.fontWeights.regular}",
+              "lineHeight": 1.70,
+              "letterSpacing": "-0.01em"
+            },
+            "$description": "Standard reading text"
+          },
+          "bodySmall": {
+            "$type": "typography",
+            "$value": {
+              "fontFamily": "{typography.fontFamilies.sans}",
+              "fontSize": "0.875rem",
+              "fontWeight": "{typography.fontWeights.regular}",
+              "lineHeight": 1.60,
+              "letterSpacing": "-0.005em"
+            },
+            "$description": "Secondary body, form help text"
+          },
+          "caption": {
+            "$type": "typography",
+            "$value": {
+              "fontFamily": "{typography.fontFamilies.sans}",
+              "fontSize": "0.75rem",
+              "fontWeight": "{typography.fontWeights.regular}",
+              "lineHeight": 1.50,
+              "letterSpacing": "0"
+            },
+            "$description": "Fine print, metadata, timestamps"
+          },
+          "button": {
+            "$type": "typography",
+            "$value": {
+              "fontFamily": "{typography.fontFamilies.sans}",
+              "fontSize": "1rem",
+              "fontWeight": "{typography.fontWeights.medium}",
+              "lineHeight": 1.00,
+              "letterSpacing": "0"
+            },
+            "$description": "Button text, CTAs"
+          },
+          "code": {
+            "$type": "typography",
+            "$value": {
+              "fontFamily": "{typography.fontFamilies.mono}",
+              "fontSize": "0.875rem",
+              "fontWeight": "{typography.fontWeights.regular}",
+              "lineHeight": 1.80,
+              "letterSpacing": "0"
+            },
+            "$description": "Code blocks, technical labels"
+          }
+        }
+      },
+      "spacing": {
+        "base": { "$type": "dimension", "$value": "4px", "$description": "Base spacing unit" },
+        "scale": {
+          "1": { "$type": "dimension", "$value": "4px" },
+          "2": { "$type": "dimension", "$value": "8px" },
+          "3": { "$type": "dimension", "$value": "12px" },
+          "4": { "$type": "dimension", "$value": "16px" },
+          "6": { "$type": "dimension", "$value": "24px" },
+          "8": { "$type": "dimension", "$value": "32px" },
+          "12": { "$type": "dimension", "$value": "48px" },
+          "16": { "$type": "dimension", "$value": "64px" },
+          "24": { "$type": "dimension", "$value": "96px" },
+          "32": { "$type": "dimension", "$value": "128px" }
+        },
+        "component": {
+          "sectionVertical": { "$type": "dimension", "$value": "96px", "$description": "Section vertical spacing" },
+          "sectionVerticalLg": { "$type": "dimension", "$value": "128px", "$description": "Large section vertical spacing" },
+          "containerHorizontal": { "$type": "dimension", "$value": "24px", "$description": "Container horizontal padding" },
+          "containerHorizontalLg": { "$type": "dimension", "$value": "32px", "$description": "Large container horizontal padding" },
+          "cardPadding": { "$type": "dimension", "$value": "32px", "$description": "Card internal padding" },
+          "cardPaddingLg": { "$type": "dimension", "$value": "40px", "$description": "Large card internal padding" },
+          "cardGap": { "$type": "dimension", "$value": "24px", "$description": "Gap between card elements" },
+          "buttonPaddingX": { "$type": "dimension", "$value": "32px", "$description": "Button horizontal padding" },
+          "buttonPaddingY": { "$type": "dimension", "$value": "16px", "$description": "Button vertical padding" },
+          "buttonGap": { "$type": "dimension", "$value": "12px", "$description": "Button icon/text gap" },
+          "inputPaddingX": { "$type": "dimension", "$value": "16px", "$description": "Input horizontal padding" },
+          "inputPaddingY": { "$type": "dimension", "$value": "12px", "$description": "Input vertical padding" },
+          "fieldGap": { "$type": "dimension", "$value": "8px", "$description": "Gap between label and input" },
+          "navGap": { "$type": "dimension", "$value": "32px", "$description": "Navigation item gap" }
+        }
+      },
+      "borderRadius": {
+        "sm": { "$type": "dimension", "$value": "4px", "$description": "Badges, small tags" },
+        "md": { "$type": "dimension", "$value": "8px", "$description": "Buttons, inputs, standard cards" },
+        "lg": { "$type": "dimension", "$value": "12px", "$description": "Feature cards, image containers" },
+        "xl": { "$type": "dimension", "$value": "16px", "$description": "Hero cards, modals" },
+        "full": { "$type": "dimension", "$value": "9999px", "$description": "Pill CTAs, avatar, tags" }
+      },
+      "shadow": {
+        "none": { "$type": "shadow", "$value": "none", "$description": "Flat sections" },
+        "sm": { "$type": "shadow", "$value": "0 1px 2px rgba(0,0,0,0.05)", "$description": "Hover hints, dividers" },
+        "md": { "$type": "shadow", "$value": "0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04)", "$description": "Standard cards" },
+        "lg": { "$type": "shadow", "$value": "0 12px 28px rgba(0,0,0,0.12), 0 4px 8px rgba(0,0,0,0.06)", "$description": "Dropdowns, modals" },
+        "xl": { "$type": "shadow", "$value": "0 24px 48px rgba(0,0,0,0.16), 0 8px 16px rgba(0,0,0,0.08)", "$description": "Hero cards, floating panels" },
+        "focus": { "$type": "shadow", "$value": "0 0 0 3px rgba(16,185,129,0.4)", "$description": "Keyboard focus ring (emerald)" }
+      },
+      "motion": {
+        "easing": {
+          "smooth": { "$type": "cubicBezier", "$value": [0.25, 0.46, 0.45, 0.94], "$description": "Default — natural, premium" },
+          "snappy": { "$type": "cubicBezier", "$value": [0.2, 0.6, 0.2, 1], "$description": "UI responses — fast, crisp" },
+          "spring": { "$type": "cubicBezier", "$value": [0.34, 1.56, 0.64, 1], "$description": "Playful, overshoot — sparing use" }
+        },
+        "duration": {
+          "instant": { "$type": "duration", "$value": "0ms", "$description": "State changes (active, focus)" },
+          "fast": { "$type": "duration", "$value": "150ms", "$description": "Hover, tap feedback" },
+          "base": { "$type": "duration", "$value": "200ms", "$description": "Standard transitions" },
+          "smooth": { "$type": "duration", "$value": "300ms", "$description": "Panel slides, modal entry" },
+          "slow": { "$type": "duration", "$value": "500ms", "$description": "Page transitions, complex sequences" }
+        },
+        "animations": {
+          "fadeInUp": {
+            "$type": "keyframes",
+            "$value": {
+              "0%": { "opacity": 0, "transform": "translateY(20px)" },
+              "100%": { "opacity": 1, "transform": "translateY(0)" }
+            },
+            "$description": "Standard entrance animation"
+          },
+          "scalePress": {
+            "$type": "keyframes",
+            "$value": {
+              "0%": { "transform": "scale(1)" },
+              "100%": { "transform": "scale(0.98)" }
+            },
+            "$description": "Button press feedback"
+          },
+          "glowPulse": {
+            "$type": "keyframes",
+            "$value": {
+              "0%": { "boxShadow": "0 0 0 0 rgba(16,185,129,0.4)" },
+              "70%": { "boxShadow": "0 0 0 10px rgba(16,185,129,0)" },
+              "100%": { "boxShadow": "0 0 0 0 rgba(16,185,129,0)" }
+            },
+            "$description": "Hero CTA glow pulse (2s infinite)"
+          },
+          "slidePanel": {
+            "$type": "keyframes",
+            "$value": {
+              "0%": { "transform": "translateX(100%)" },
+              "100%": { "transform": "translateX(0)" }
+            },
+            "$description": "Mobile nav panel slide"
+          }
+        }
+      },
+      "breakpoints": {
+        "mobile": { "$type": "dimension", "$value": "640px", "$description": "Mobile-first base" },
+        "tablet": { "$type": "dimension", "$value": "1024px", "$description": "Tablet and small desktop" },
+        "desktop": { "$type": "dimension", "$value": "1440px", "$description": "Standard desktop" },
+        "wide": { "$type": "dimension", "$value": "1920px", "$description": "Large desktop" }
+      },
+      "zIndex": {
+        "base": { "$type": "number", "$value": 1 },
+        "sticky": { "$type": "number", "$value": 100 },
+        "dropdown": { "$type": "number", "$value": 200 },
+        "modal": { "$type": "number", "$value": 300 },
+        "toast": { "$type": "number", "$value": 400 },
+        "tooltip": { "$type": "number", "$value": 500 }
+      },
+      "iconography": {
+        "baseSize": { "$type": "dimension", "$value": "24px", "$description": "Base icon grid size" },
+        "strokeWidth": { "$type": "dimension", "$value": "2px", "$description": "Outline stroke weight" },
+        "sizes": {
+          "inline": { "$type": "dimension", "$value": "16px" },
+          "ui": { "$type": "dimension", "$value": "20px" },
+          "default": { "$type": "dimension", "$value": "24px" },
+          "feature": { "$type": "dimension", "$value": "32px" },
+          "hero": { "$type": "dimension", "$value": "48px" }
+        }
+      },
+      "imagery": {
+        "aspectRatios": {
+          "hero": { "$type": "ratio", "$value": "16/9" },
+          "serviceCard": { "$type": "ratio", "$value": "4/3" },
+          "team": { "$type": "ratio", "$value": "1/1" },
+          "project": { "$type": "ratio", "$value": "16/9" }
+        },
+        "optimization": {
+          "heroMaxKb": { "$type": "number", "$value": 100 },
+          "cardMaxKb": { "$type": "number", "$value": 50 },
+          "thumbnailMaxKb": { "$type": "number", "$value": 20 }
+        },
+        "formats": {
+          "primary": ["webp", "avif"],
+          "fallback": ["jpeg"]
+        }
+      }
+    }
+  },
+  "platforms": {
+    "css": {
+      "prefix": "color",
+      "transforms": ["color/rgb", "dimension/px", "duration/ms", "cubicBezier/css"]
+    },
+    "tailwind": {
+      "prefix": "",
+      "transforms": ["color/hex", "dimension/rem", "duration/ms"]
+    }
+  }
+}
