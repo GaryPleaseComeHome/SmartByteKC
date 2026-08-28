@@ -3,7 +3,7 @@ import Logo from './Logo.astro';
 import { Phone, Menu, X, ArrowRight, ChevronDown } from 'lucide-astro';
 ---
 <header class="sticky top-0 z-50 bg-slate-950/90 backdrop-blur-xl border-b border-slate-800/80 transition-all duration-300">
-	<div class="max-w-7xl mx-auto px-6 lg:px-10 h-32 sm:h-40 flex items-center justify-between">
+	<div class="max-w-7xl mx-auto px-6 lg:px-12 h-32 sm:h-40 flex items-center justify-between">
 		<!-- Brand Logo -->
 		<a href="/" class="flex items-center gap-6 group">
 			<Logo class="w-24 h-24 sm:w-28 sm:h-28" />
@@ -13,15 +13,15 @@ import { Phone, Menu, X, ArrowRight, ChevronDown } from 'lucide-astro';
 		</a>
 
 		<!-- Desktop Nav -->
-		<nav class="hidden md:flex items-center gap-12 font-semibold text-xl text-slate-300">
+		<nav class="hidden md:flex items-center gap-16 font-semibold text-xl text-slate-300">
 			<div class="relative group">
 				<button class="flex items-center gap-2 hover:text-emerald-400 transition-colors">
 					Services <ChevronDown class="w-6 h-6" />
 				</button>
-				<div class="absolute left-0 top-full mt-3 w-72 bg-slate-900 border border-slate-800 rounded-3xl shadow-2xl p-3 hidden group-hover:block z-50">
-					<a href="/services/network" class="block px-6 py-5 rounded-2xl hover:bg-slate-800 hover:text-emerald-400 transition-all font-bold text-lg">WiFi / Networks</a>
-					<a href="/services/security" class="block px-6 py-5 rounded-2xl hover:bg-slate-800 hover:text-emerald-400 transition-all font-bold text-lg">Security Cameras / Systems</a>
-					<a href="/services/audio-video" class="block px-6 py-5 rounded-2xl hover:bg-slate-800 hover:text-emerald-400 transition-all font-bold text-lg">Audio / Video</a>
+				<div class="absolute left-0 top-full mt-4 w-72 bg-slate-900 border border-slate-800 rounded-3xl shadow-2xl p-3 hidden group-hover:block z-50">
+					<a href="/services/network" class="block px-6 py-5 rounded-2xl hover:bg-slate-800 hover:text-emerald-400 transition-all font-bold text-lg mb-1">WiFi / Networks</a>
+					<a href="/services/security" class="block px-6 py-5 rounded-2xl hover:bg-slate-800 hover:text-emerald-400 transition-all font-bold text-lg mb-1">Security Cameras / Systems</a>
+					<a href="/services/audio-video" class="block px-6 py-5 rounded-2xl hover:bg-slate-800 hover:text-emerald-400 transition-all font-bold text-lg mb-1">Audio / Video</a>
 					<a href="/services/tech-support" class="block px-6 py-5 rounded-2xl hover:bg-slate-800 hover:text-emerald-400 transition-all font-bold text-lg">Tech Support</a>
 				</div>
 			</div>
@@ -30,12 +30,12 @@ import { Phone, Menu, X, ArrowRight, ChevronDown } from 'lucide-astro';
 		</nav>
 
 		<!-- CTAs -->
-		<div class="hidden lg:flex items-center gap-10">
+		<div class="hidden lg:flex items-center gap-12">
 			<a href="tel:+1917035643" class="flex items-center gap-4 text-emerald-400 font-extrabold text-xl hover:text-emerald-300 transition-colors">
 				<Phone class="w-8 h-8" />
 				<span>(913) 703-5643</span>
 			</a>
-			<a href="#contact" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-10 py-5 rounded-full transition-all shadow-glow flex items-center gap-3 text-xl">
+			<a href="#contact" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-12 py-5 rounded-full transition-all shadow-glow flex items-center gap-3 text-xl whitespace-nowrap">
 				Get Help Now
 			</a>
 		</div>
