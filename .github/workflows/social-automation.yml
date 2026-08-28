@@ -1,0 +1,70 @@
+name: SmartByte Social Automation
+
+on:
+  schedule:
+    # Daily at 06:15 UTC == 01:15 CDT. The earliest publish time is 08:00 CDT,
+    # so this comfortably runs before any post is due. GitHub cron is UTC;
+    # Kansas City is UTC-5 (CDT) in Aug/Sep.
+    - cron: "15 6 * * *"
+  workflow_dispatch:
+    inputs:
+      run_date:
+        description: "Act as if today is this date (YYYY-MM-DD). Blank = real today."
+        required: false
+        default: ""
+      publish:
+        description: "Actually publish (requires provider secrets). Default dry-run."
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Regenerate calendar (single source of truth)
+        run: python social/build_calendar.py
+
+      - name: Validate calendar
+        run: python social/runner.py --validate-only
+
+      - name: Run due posts (dry-run unless publish + secrets set)
+        env:
+          META_ACCESS_TOKEN: ${{ secrets.META_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          LINKEDIN_ACCESS_TOKEN: ${{ secrets.LINKEDIN_ACCESS_TOKEN }}
+          LINKEDIN_COMPANY_ID: ${{ secrets.LINKEDIN_COMPANY_ID }}
+          NEXTDOOR_ACCESS_TOKEN: ${{ secrets.NEXTDOOR_ACCESS_TOKEN }}
+        run: |
+          ARGS=""
+          if [ -n "${{ github.event.inputs.run_date }}" ]; then
+            ARGS="$ARGS --date ${{ github.event.inputs.run_date }}"
+          fi
+          if [ "${{ github.event.inputs.publish }}" = "true" ]; then
+            ARGS="$ARGS --post"
+          fi
+          python social/runner.py $ARGS
+
+      - name: Upload run artifacts (calendar + post log)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: smartbyte-social-run
+          path: |
+            social/calendar.json
+            social/calendar.md
+            social/post-log.jsonl
+          retention-days: 30
