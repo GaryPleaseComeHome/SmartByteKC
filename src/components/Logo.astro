@@ -4,4 +4,6 @@ interface Props {
 }
 const { class: className } = Astro.props;
 ---
-<img src="/logo.png" alt="SmartByteKC" class={className} />
+<div class={"flex items-center justify-center bg-emerald-500/10 border border-emerald-500/30 rounded-2xl " + className}>
+  <img src="/logo.png" alt="SmartByteKC" class="w-[85%] h-[85%]" />
+</div>
