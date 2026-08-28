@@ -1,107 +1,45 @@
 ---
 import Logo from './Logo.astro';
-import { Phone, Menu, X, ArrowRight } from 'lucide-astro';
+import { Phone, Menu, X, ArrowRight, ChevronDown } from 'lucide-astro';
 ---
-
 <header class="sticky top-0 z-50 bg-slate-950/90 backdrop-blur-xl border-b border-slate-800/80 transition-all duration-300">
 	<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 sm:h-24 flex items-center justify-between">
-		<!-- Brand Logo (Bigger & Prominent) -->
-		<a href="/" class="flex items-center gap-3.5 group">
-			<div class="w-12 h-12 sm:w-14 sm:h-14 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center group-hover:scale-105 transition-transform duration-200 border border-emerald-500/30 shadow-glow shrink-0">
-				<Logo class="w-8 h-8 sm:w-10 sm:h-10" />
+		<!-- Brand Logo -->
+		<a href="/" class="flex items-center gap-4 group">
+			<div class="w-16 h-16 sm:w-20 sm:h-20 text-emerald-400 flex items-center justify-center">
+				<Logo class="w-full h-full" />
 			</div>
 			<span class="font-heading font-extrabold text-2xl sm:text-3xl tracking-tight text-white">
 				SmartByte<span class="text-emerald-400">KC</span>
 			</span>
 		</a>
 
-		<!-- Desktop Nav Links -->
+		<!-- Desktop Nav -->
 		<nav class="hidden md:flex items-center gap-8 font-semibold text-base text-slate-300">
-			<a href="#services" class="hover:text-emerald-400 transition-colors">Services</a>
+			<div class="relative group">
+				<button class="flex items-center gap-1 hover:text-emerald-400 transition-colors">
+					Services <ChevronDown class="w-4 h-4" />
+				</button>
+				<div class="absolute left-0 top-full mt-2 w-56 bg-slate-900 border border-slate-800 rounded-2xl shadow-xl p-2 hidden group-hover:block">
+					<a href="/services/network" class="block px-4 py-3 rounded-lg hover:bg-slate-800 hover:text-emerald-400">Network</a>
+					<a href="/services/security" class="block px-4 py-3 rounded-lg hover:bg-slate-800 hover:text-emerald-400">Security</a>
+					<a href="/services/audio-video" class="block px-4 py-3 rounded-lg hover:bg-slate-800 hover:text-emerald-400">Audio / Video</a>
+					<a href="/services/tech-support" class="block px-4 py-3 rounded-lg hover:bg-slate-800 hover:text-emerald-400">Tech Support</a>
+				</div>
+			</div>
 			<a href="#why" class="hover:text-emerald-400 transition-colors">Why Us</a>
 			<a href="#contact" class="hover:text-emerald-400 transition-colors">Contact</a>
 		</nav>
 
-		<!-- Desktop CTAs -->
+		<!-- CTAs -->
 		<div class="hidden md:flex items-center gap-6">
-			<a 
-				href="tel:+19137035643" 
-				class="flex items-center gap-2.5 text-emerald-400 font-bold text-base hover:text-emerald-300 transition-colors"
-				aria-label="Call SmartByteKC"
-			>
+			<a href="tel:+1917035643" class="flex items-center gap-2.5 text-emerald-400 font-bold hover:text-emerald-300 transition-colors">
 				<Phone class="w-5 h-5" />
 				<span>(913) 703-5643</span>
 			</a>
-			<a 
-				href="#contact" 
-				class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-base font-extrabold px-6 py-3 rounded-full transition-all duration-200 transform hover:-translate-y-0.5 shadow-glow hover:shadow-glow-lg flex items-center gap-2"
-			>
-				<span>Contact Us</span>
-				<ArrowRight class="w-5 h-5" />
-			</a>
-		</div>
-
-		<!-- Mobile Menu Button -->
-		<button 
-			id="mobile-menu-toggle" 
-			class="md:hidden p-2.5 rounded-xl text-slate-300 hover:bg-slate-800 transition-colors"
-			aria-label="Toggle menu"
-		>
-			<Menu class="w-7 h-7" id="menu-icon" />
-			<X class="w-7 h-7 hidden" id="close-icon" />
-		</button>
-	</div>
-
-	<!-- Mobile Drawer -->
-	<div id="mobile-drawer" class="hidden md:hidden bg-slate-900 border-b border-slate-800 px-5 pt-4 pb-8 space-y-4">
-		<a href="#services" class="mobile-nav-link block py-2.5 text-lg font-bold text-slate-200 hover:text-emerald-400">Services</a>
-		<a href="#why" class="mobile-nav-link block py-2.5 text-lg font-bold text-slate-200 hover:text-emerald-400">Why Us</a>
-		<a href="#contact" class="mobile-nav-link block py-2.5 text-lg font-bold text-slate-200 hover:text-emerald-400">Contact</a>
-		<div class="pt-4 border-t border-slate-800 flex flex-col gap-3.5">
-			<a 
-				href="tel:+19137035643" 
-				class="flex items-center justify-center gap-2.5 w-full bg-emerald-500/10 text-emerald-400 font-extrabold py-3.5 rounded-xl border border-emerald-500/30 text-base"
-			>
-				<Phone class="w-5 h-5" />
-				Call (913) 703-5643
-			</a>
-			<a 
-				href="#contact" 
-				class="w-full text-center bg-emerald-500 text-slate-950 font-extrabold py-3.5 rounded-xl hover:bg-emerald-400 shadow-glow text-base"
-			>
-				Request Consultation
+			<a href="#contact" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold px-6 py-3 rounded-full transition-all shadow-glow flex items-center gap-2">
+				Contact
 			</a>
 		</div>
 	</div>
 </header>
-
-<script>
-	const toggleBtn = document.getElementById('mobile-menu-toggle');
-	const drawer = document.getElementById('mobile-drawer');
-	const menuIcon = document.getElementById('menu-icon');
-	const closeIcon = document.getElementById('close-icon');
-	const mobileLinks = document.querySelectorAll('.mobile-nav-link');
-
-	if (toggleBtn && drawer) {
-		toggleBtn.addEventListener('click', () => {
-			const isOpen = !drawer.classList.contains('hidden');
-			if (isOpen) {
-				drawer.classList.add('hidden');
-				menuIcon?.classList.remove('hidden');
-				closeIcon?.classList.add('hidden');
-			} else {
-				drawer.classList.remove('hidden');
-				menuIcon?.classList.add('hidden');
-				closeIcon?.classList.remove('hidden');
-			}
-		});
-
-		mobileLinks.forEach(link => {
-			link.addEventListener('click', () => {
-				drawer.classList.add('hidden');
-				menuIcon?.classList.remove('hidden');
-				closeIcon?.classList.add('hidden');
-			});
-		});
-	}
-</script>
