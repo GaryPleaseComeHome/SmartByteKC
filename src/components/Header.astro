@@ -14,15 +14,19 @@ import { Phone, Menu, X, ArrowRight, ChevronDown } from 'lucide-astro';
 
 		<!-- Desktop Nav -->
 		<nav class="hidden md:flex items-center gap-8 font-semibold text-lg text-slate-300">
-			<div class="relative group">
-				<button class="flex items-center gap-1.5 hover:text-emerald-400 transition-colors">
+			<div class="relative group/pARENT">
+				<button class="flex items-center gap-1.5 hover:text-emerald-400 transition-colors pb-1">
 					Services <ChevronDown class="w-5 h-5" />
 				</button>
-				<div class="absolute left-0 top-full mt-3 w-64 bg-slate-900 border border-slate-800 rounded-2xl shadow-xl p-2 hidden group-hover:block z-50">
-					<a href="/services/network" class="block px-5 py-4 rounded-xl hover:bg-slate-800 hover:text-emerald-400 transition-all font-bold">WiFi / Networks</a>
-					<a href="/services/security" class="block px-5 py-4 rounded-xl hover:bg-slate-800 hover:text-emerald-400 transition-all font-bold">Security Cameras / Systems</a>
-					<a href="/services/audio-video" class="block px-5 py-4 rounded-xl hover:bg-slate-800 hover:text-emerald-400 transition-all font-bold">Audio / Video</a>
-					<a href="/services/tech-support" class="block px-5 py-4 rounded-xl hover:bg-slate-800 hover:text-emerald-400 transition-all font-bold">Tech Support</a>
+				<!-- Invisible bridge so the hover doesn't break -->
+				<div class="absolute left-0 top-full w-full h-4 z-40"></div>
+				<div class="absolute left-0 top-full pt-3 w-72 bg-transparent z-50 hidden group-hover:block">
+					<div class="bg-slate-900 border border-slate-800 rounded-3xl shadow-2xl p-3">
+						<a href="/services/network" class="block px-6 py-5 rounded-2xl hover:bg-slate-800 hover:text-emerald-400 transition-all font-bold text-lg mb-1">WiFi / Networks</a>
+						<a href="/services/security" class="block px-6 py-5 rounded-2xl hover:bg-slate-800 hover:text-emerald-400 transition-all font-bold text-lg mb-1">Security Cameras / Systems</a>
+						<a href="/services/audio-video" class="block px-6 py-5 rounded-2xl hover:bg-slate-800 hover:text-emerald-400 transition-all font-bold text-lg mb-1">Audio / Video</a>
+						<a href="/services/tech-support" class="block px-6 py-5 rounded-2xl hover:bg-slate-800 hover:text-emerald-400 transition-all font-bold text-lg">Tech Support</a>
+					</div>
 				</div>
 			</div>
 			<a href="/about" class="hover:text-emerald-400 transition-colors">About</a>

@@ -1,24 +1,96 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import { Shield, Camera, Eye, Lock } from 'lucide-astro';
 ---
 <Layout title="Security Systems | SmartByteKC">
-  <div class="max-w-4xl mx-auto px-6 py-24 text-white">
-    <h1 class="text-5xl font-extrabold mb-8 text-emerald-400">Security Systems</h1>
-    <p class="text-xl text-slate-300 mb-10 leading-relaxed">
-      Keep your home or business protected with expert surveillance installations. We supply and configure professional 4K IP security cameras, Network Video Recorders (NVRs), and modern access control systems for ultimate peace of mind.
-    </p>
+  <Header />
+  <main class="bg-slate-950 min-h-screen">
+    <div class="max-w-7xl mx-auto px-6 py-24 sm:py-32">
+      <div class="max-w-3xl">
+        <h1 class="text-5xl sm:text-7xl font-extrabold text-white tracking-tight mb-8">
+          4K <span class="text-emerald-400">Security</span> Systems
+        </h1>
+        <p class="text-xl sm:text-2xl text-slate-300 mb-12 leading-relaxed font-medium">
+          Protect your home or business with enterprise-grade surveillance. We install 4K IP camera systems, local NVR storage, and smart access control — all with no monthly fees.
+        </p>
+      </div>
 
-    <h2 class="text-3xl font-bold mb-6">Security Solutions</h2>
-    <ul class="list-disc list-inside text-lg text-slate-300 space-y-3 mb-10">
-      <li>4K IP Security Camera System Design</li>
-      <li>Local NVR Recording with No Monthly Fees</li>
-      <li>Smart Access Control (UniFi, Door Access)</li>
-      <li>Commercial Security Audits & Upgrades</li>
-      <li>Remote Mobile App Monitoring Setup</li>
-    </ul>
+      <div class="grid md:grid-cols-2 gap-12 mb-20">
+        <div class="bg-slate-900/50 p-10 rounded-3xl border border-slate-800 backdrop-blur-md">
+          <div class="w-16 h-16 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-8">
+            <Camera class="w-8 h-8" />
+          </div>
+          <h2 class="text-3xl font-bold text-white mb-6">IP Camera Systems</h2>
+          <p class="text-lg text-slate-400 mb-6">
+            Crystal-clear 4K surveillance cameras with night vision, smart motion detection, and PoE (Power over Ethernet) for simple, reliable installs.
+          </p>
+          <ul class="space-y-4 text-slate-300 font-bold">
+            <li class="flex items-center gap-3"><div class="w-1.5 h-1.5 rounded-full bg-emerald-400"></div> 4K Ultra HD Resolution</li>
+            <li class="flex items-center gap-3"><div class="w-1.5 h-1.5 rounded-full bg-emerald-400"></div> Night Vision & Infrared</li>
+            <li class="flex items-center gap-3"><div class="w-1.5 h-1.5 rounded-full bg-emerald-400"></div> Smart Motion Alerts</li>
+            <li class="flex items-center gap-3"><div class="w-1.5 h-1.5 rounded-full bg-emerald-400"></div> Weatherproof Outdoor Ratings</li>
+          </ul>
+        </div>
 
-    <a href="#contact" class="inline-block bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-10 py-5 rounded-full text-lg shadow-glow">
-      Request Security Quote
-    </a>
-  </div>
+        <div class="bg-slate-900/50 p-10 rounded-3xl border border-slate-800 backdrop-blur-md">
+          <div class="w-16 h-16 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-8">
+            <Lock class="w-8 h-8" />
+          </div>
+          <h2 class="text-3xl font-bold text-white mb-6">Access Control</h2>
+          <p class="text-lg text-slate-400 mb-6">
+            Modern door access systems replace traditional keys with keypads, fobs, or app-based entry — perfect for homes, offices, and commercial properties.
+          </p>
+          <ul class="space-y-4 text-slate-300 font-bold">
+            <li class="flex items-center gap-3"><div class="w-1.5 h-1.5 rounded-full bg-emerald-400"></div> Keypad & Fob Entry</li>
+            <li class="flex items-center gap-3"><div class="w-1.5 h-1.5 rounded-full bg-emerald-400"></div> UniFi Access Integration</li>
+            <li class="flex items-center gap-3"><div class="w-1.5 h-1.5 rounded-full bg-emerald-400"></div> Remote Lock / Unlock</li>
+            <li class="flex items-center gap-3"><div class="w-1.5 h-1.5 rounded-full bg-emerald-400"></div> Entry Logs & Audit Trails</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12 mb-20">
+        <div class="bg-slate-900/50 p-10 rounded-3xl border border-slate-800 backdrop-blur-md">
+          <div class="w-16 h-16 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-8">
+            <Eye class="w-8 h-8" />
+          </div>
+          <h2 class="text-3xl font-bold text-white mb-6">Local NVR Storage</h2>
+          <p class="text-lg text-slate-400 mb-6">
+            No cloud subscriptions required. We configure local Network Video Recorders that store weeks of footage on-site, accessible from your phone or computer.
+          </p>
+          <ul class="space-y-4 text-slate-300 font-bold">
+            <li class="flex items-center gap-3"><div class="w-1.5 h-1.5 rounded-full bg-emerald-400"></div> No Monthly Fees</li>
+            <li class="flex items-center gap-3"><div class="w-1.5 h-1.5 rounded-full bg-emerald-400"></div> 30+ Days of Continuous Recording</li>
+            <li class="flex items-center gap-3"><div class="w-1.5 h-1.5 rounded-full bg-emerald-400"></div> Mobile App Remote Viewing</li>
+            <li class="flex items-center gap-3"><div class="w-1.5 h-1.5 rounded-full bg-emerald-400"></div> Playback & Export Clips</li>
+          </ul>
+        </div>
+
+        <div class="bg-slate-900/50 p-10 rounded-3xl border border-slate-800 backdrop-blur-md">
+          <div class="w-16 h-16 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-8">
+            <Shield class="w-8 h-8" />
+          </div>
+          <h2 class="text-3xl font-bold text-white mb-6">Commercial Security</h2>
+          <p class="text-lg text-slate-400 mb-6">
+            Multi-camera commercial installs for offices, warehouses, retail, and parking lots — designed for maximum coverage with minimal maintenance.
+          </p>
+          <ul class="space-y-4 text-slate-300 font-bold">
+            <li class="flex items-center gap-3"><div class="w-1.5 h-1.5 rounded-full bg-emerald-400"></div> Site Security Audits</li>
+            <li class="flex items-center gap-3"><div class="w-1.5 h-1.5 rounded-full bg-emerald-400"></div> Multi-Location Monitoring</li>
+            <li class="flex items-center gap-3"><div class="w-1.5 h-1.5 rounded-full bg-emerald-400"></div> License Plate Recognition</li>
+            <li class="flex items-center gap-3"><div class="w-1.5 h-1.5 rounded-full bg-emerald-400"></div> Integrated Access + Camera Systems</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <a href="/#contact" class="inline-flex items-center justify-center gap-4 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-12 py-6 rounded-full text-xl shadow-glow transform hover:-translate-y-1 transition-all">
+          Get a Security Quote
+        </a>
+      </div>
+    </div>
+  </main>
+  <Footer />
 </Layout>
