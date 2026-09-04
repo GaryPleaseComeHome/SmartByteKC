@@ -2,8 +2,9 @@
 import Logo from './Logo.astro';
 import { Phone, Menu, X, ArrowRight, ChevronDown } from 'lucide-astro';
 ---
+
 <header class="sticky top-0 z-50 bg-slate-950/90 backdrop-blur-xl border-b border-slate-800/80 transition-all duration-300">
-	<div class="max-w-7xl mx-auto px-6 lg:px-10 h-28 sm:h-32 flex items-center justify-between">
+	<div class="max-w-7xl mx-auto px-6 lg:px-10 h-28 sm:h-32 flex items-center justify-between relative">
 		<!-- Brand Logo -->
 		<a href="/" class="flex items-center gap-4 group">
 			<Logo class="w-20 h-20 sm:w-24 sm:h-24" />
@@ -14,40 +15,225 @@ import { Phone, Menu, X, ArrowRight, ChevronDown } from 'lucide-astro';
 
 		<!-- Desktop Nav -->
 		<nav class="hidden md:flex items-center gap-8 font-semibold text-lg text-slate-300">
-			<div class="relative group/pARENT">
-				<button class="flex items-center gap-1.5 hover:text-emerald-400 transition-colors pb-1">
-					Services <ChevronDown class="w-5 h-5" />
+			<!-- Services Dropdown Container -->
+			<div id="desktop-services-parent" class="relative group">
+				<button 
+					id="desktop-services-btn"
+					type="button"
+					class="flex items-center gap-1.5 hover:text-emerald-400 transition-colors pb-1 focus:outline-none cursor-pointer"
+					aria-expanded="false"
+					aria-haspopup="true"
+				>
+					<span>Services</span>
+					<ChevronDown id="desktop-services-chevron" class="w-5 h-5 transition-transform duration-200" />
 				</button>
-				<!-- Invisible bridge so the hover doesn't break -->
-				<div class="absolute left-0 top-full w-full h-4 z-40"></div>
-				<div class="absolute left-0 top-full pt-3 w-72 bg-transparent z-50 hidden group-hover:block">
+				<!-- Dropdown Menu -->
+				<div 
+					id="desktop-services-dropdown" 
+					class="absolute left-0 top-full pt-3 w-72 bg-transparent z-50 hidden group-hover:block transition-all"
+				>
 					<div class="bg-slate-900 border border-slate-800 rounded-3xl shadow-2xl p-3">
-						<a href="/services/network" class="block px-6 py-5 rounded-2xl hover:bg-slate-800 hover:text-emerald-400 transition-all font-bold text-lg mb-1">WiFi / Networks</a>
-						<a href="/services/security" class="block px-6 py-5 rounded-2xl hover:bg-slate-800 hover:text-emerald-400 transition-all font-bold text-lg mb-1">Security Cameras / Systems</a>
-						<a href="/services/audio-video" class="block px-6 py-5 rounded-2xl hover:bg-slate-800 hover:text-emerald-400 transition-all font-bold text-lg mb-1">Audio / Video</a>
-						<a href="/services/tech-support" class="block px-6 py-5 rounded-2xl hover:bg-slate-800 hover:text-emerald-400 transition-all font-bold text-lg">Tech Support</a>
+						<a href="/services/network" class="block px-6 py-4 rounded-2xl hover:bg-slate-800 hover:text-emerald-400 transition-all font-bold text-lg mb-1">
+							WiFi / Networks
+						</a>
+						<a href="/services/security" class="block px-6 py-4 rounded-2xl hover:bg-slate-800 hover:text-emerald-400 transition-all font-bold text-lg mb-1">
+							Security Cameras / Systems
+						</a>
+						<a href="/services/audio-video" class="block px-6 py-4 rounded-2xl hover:bg-slate-800 hover:text-emerald-400 transition-all font-bold text-lg mb-1">
+							Audio / Video
+						</a>
+						<a href="/services/tech-support" class="block px-6 py-4 rounded-2xl hover:bg-slate-800 hover:text-emerald-400 transition-all font-bold text-lg">
+							Tech Support
+						</a>
 					</div>
 				</div>
 			</div>
 			<a href="/about" class="hover:text-emerald-400 transition-colors">About</a>
-			<a href="#contact" class="hover:text-emerald-400 transition-colors">Contact</a>
+			<a href="/#contact" class="hover:text-emerald-400 transition-colors">Contact</a>
 		</nav>
 
-		<!-- CTAs -->
+		<!-- CTAs (Desktop) -->
 		<div class="hidden lg:flex items-center gap-8">
-			<a href="tel:+19137035643" class="flex items-center gap-3 text-emerald-400 font-extrabold text-lg hover:text-emerald-300 transition-colors">
+			<a href="tel:+191****5643" class="flex items-center gap-3 text-emerald-400 font-extrabold text-lg hover:text-emerald-300 transition-colors">
 				<Phone class="w-6 h-6" />
 				<span>(913) 703-5643</span>
 			</a>
-			<a href="#contact" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-8 py-4 rounded-full transition-all shadow-glow flex items-center gap-2 text-lg whitespace-nowrap">
+			<a href="/#contact" class="bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black px-8 py-4 rounded-full transition-all shadow-glow flex items-center gap-2 text-lg whitespace-nowrap">
 				Get Help Now
 			</a>
 		</div>
 
-		<!-- Mobile Menu Button -->
-		<button id="mobile-menu-toggle" class="md:hidden p-3 rounded-2xl text-slate-300 hover:bg-slate-800 transition-colors">
+		<!-- Mobile Menu Toggle Button -->
+		<button 
+			id="mobile-menu-toggle" 
+			type="button"
+			class="md:hidden p-3 rounded-2xl text-slate-300 hover:bg-slate-800 transition-colors focus:outline-none"
+			aria-label="Toggle navigation menu"
+			aria-expanded="false"
+		>
 			<Menu class="w-8 h-8" id="menu-icon" />
 			<X class="w-8 h-8 hidden" id="close-icon" />
 		</button>
 	</div>
+
+	<!-- Mobile Menu Panel -->
+	<div 
+		id="mobile-menu" 
+		class="hidden md:hidden fixed left-0 right-0 top-28 sm:top-32 bg-slate-950/95 backdrop-blur-2xl border-b border-slate-800 shadow-2xl z-50 p-6 max-h-[calc(100vh-7rem)] overflow-y-auto"
+	>
+		<div class="flex flex-col space-y-4">
+			<!-- Mobile Services Accordion -->
+			<div class="border-b border-slate-800 pb-3">
+				<button 
+					id="mobile-services-btn" 
+					type="button"
+					class="w-full flex items-center justify-between py-2 text-left font-bold text-xl text-slate-200 hover:text-emerald-400 transition-colors focus:outline-none"
+				>
+					<span>Services</span>
+					<ChevronDown id="mobile-services-chevron" class="w-6 h-6 text-emerald-400 transition-transform duration-200" />
+				</button>
+				
+				<div id="mobile-services-dropdown" class="hidden pl-4 mt-2 space-y-2 border-l-2 border-slate-800">
+					<a href="/services/network" class="mobile-nav-link block py-2 px-3 text-lg font-semibold text-slate-300 hover:text-emerald-400 hover:bg-slate-900 rounded-xl transition-all">
+						WiFi / Networks
+					</a>
+					<a href="/services/security" class="mobile-nav-link block py-2 px-3 text-lg font-semibold text-slate-300 hover:text-emerald-400 hover:bg-slate-900 rounded-xl transition-all">
+						Security Cameras / Systems
+					</a>
+					<a href="/services/audio-video" class="mobile-nav-link block py-2 px-3 text-lg font-semibold text-slate-300 hover:text-emerald-400 hover:bg-slate-900 rounded-xl transition-all">
+						Audio / Video
+					</a>
+					<a href="/services/tech-support" class="mobile-nav-link block py-2 px-3 text-lg font-semibold text-slate-300 hover:text-emerald-400 hover:bg-slate-900 rounded-xl transition-all">
+						Tech Support
+					</a>
+				</div>
+			</div>
+
+			<!-- Mobile Links -->
+			<a href="/about" class="mobile-nav-link block py-3 border-b border-slate-800 font-bold text-xl text-slate-200 hover:text-emerald-400 transition-colors">
+				About
+			</a>
+			<a href="/#contact" class="mobile-nav-link block py-3 border-b border-slate-800 font-bold text-xl text-slate-200 hover:text-emerald-400 transition-colors">
+				Contact
+			</a>
+
+			<!-- Mobile Action Buttons -->
+			<div class="pt-4 flex flex-col gap-3">
+				<a href="tel:+191****5643" class="w-full flex items-center justify-center gap-3 bg-slate-900 hover:bg-slate-800 border border-slate-700 text-emerald-400 font-extrabold py-4 rounded-2xl text-lg transition-colors">
+					<Phone class="w-6 h-6" />
+					<span>(913) 703-5643</span>
+				</a>
+				<a href="/#contact" class="mobile-nav-link w-full flex items-center justify-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-black py-4 rounded-2xl text-lg shadow-glow transition-all">
+					Get Help Now
+				</a>
+			</div>
+		</div>
+	</div>
 </header>
+
+<script>
+	function setupNavigation() {
+		const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+		const mobileMenu = document.getElementById('mobile-menu');
+		const menuIcon = document.getElementById('menu-icon');
+		const closeIcon = document.getElementById('close-icon');
+
+		if (mobileMenuToggle && mobileMenu) {
+			mobileMenuToggle.addEventListener('click', (e) => {
+				e.stopPropagation();
+				const isHidden = mobileMenu.classList.contains('hidden');
+				if (isHidden) {
+					mobileMenu.classList.remove('hidden');
+					menuIcon?.classList.add('hidden');
+					closeIcon?.classList.remove('hidden');
+					mobileMenuToggle.setAttribute('aria-expanded', 'true');
+				} else {
+					mobileMenu.classList.add('hidden');
+					menuIcon?.classList.remove('hidden');
+					closeIcon?.classList.add('hidden');
+					mobileMenuToggle.setAttribute('aria-expanded', 'false');
+				}
+			});
+		}
+
+		// Mobile Services Accordion Toggle
+		const mobileServicesBtn = document.getElementById('mobile-services-btn');
+		const mobileServicesDropdown = document.getElementById('mobile-services-dropdown');
+		const mobileServicesChevron = document.getElementById('mobile-services-chevron');
+
+		if (mobileServicesBtn && mobileServicesDropdown) {
+			mobileServicesBtn.addEventListener('click', (e) => {
+				e.stopPropagation();
+				const isHidden = mobileServicesDropdown.classList.contains('hidden');
+				if (isHidden) {
+					mobileServicesDropdown.classList.remove('hidden');
+					mobileServicesChevron?.classList.add('rotate-180');
+				} else {
+					mobileServicesDropdown.classList.add('hidden');
+					mobileServicesChevron?.classList.remove('rotate-180');
+				}
+			});
+		}
+
+		// Mobile Nav Links close mobile menu
+		const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+		mobileNavLinks.forEach(link => {
+			link.addEventListener('click', () => {
+				mobileMenu?.classList.add('hidden');
+				menuIcon?.classList.remove('hidden');
+				closeIcon?.classList.add('hidden');
+				mobileMenuToggle?.setAttribute('aria-expanded', 'false');
+			});
+		});
+
+		// Desktop Services Dropdown
+		const desktopServicesParent = document.getElementById('desktop-services-parent');
+		const desktopServicesBtn = document.getElementById('desktop-services-btn');
+		const desktopServicesDropdown = document.getElementById('desktop-services-dropdown');
+		const desktopServicesChevron = document.getElementById('desktop-services-chevron');
+
+		if (desktopServicesBtn && desktopServicesDropdown) {
+			let isOpen = false;
+
+			const openDropdown = () => {
+				isOpen = true;
+				desktopServicesDropdown.classList.remove('hidden');
+				desktopServicesChevron?.classList.add('rotate-180');
+				desktopServicesBtn.setAttribute('aria-expanded', 'true');
+			};
+
+			const closeDropdown = () => {
+				isOpen = false;
+				desktopServicesDropdown.classList.add('hidden');
+				desktopServicesChevron?.classList.remove('rotate-180');
+				desktopServicesBtn.setAttribute('aria-expanded', 'false');
+			};
+
+			desktopServicesBtn.addEventListener('click', (e) => {
+				e.stopPropagation();
+				if (isOpen) {
+					closeDropdown();
+				} else {
+					openDropdown();
+				}
+			});
+
+			desktopServicesParent?.addEventListener('mouseenter', () => {
+				openDropdown();
+			});
+
+			desktopServicesParent?.addEventListener('mouseleave', () => {
+				closeDropdown();
+			});
+
+			document.addEventListener('click', (e) => {
+				if (desktopServicesParent && !desktopServicesParent.contains(e.target as Node)) {
+					closeDropdown();
+				}
+			});
+		}
+	}
+
+	setupNavigation();
+	document.addEventListener('astro:page-load', setupNavigation);
+</script>
