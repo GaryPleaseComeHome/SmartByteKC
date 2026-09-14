@@ -1,21 +1,7 @@
 {
   "brand": "SmartByte Group, LLC",
-  "tagline": "Smart Technology. Simplified.",
-  "window_start": "2026-08-28",
-  "window_end": "2026-09-26",
-  "platforms": [
-    "instagram",
-    "facebook",
-    "linkedin",
-    "nextdoor"
-  ],
-  "posting_times": {
-    "instagram": "09:00",
-    "facebook": "11:00",
-    "linkedin": "08:00",
-    "nextdoor": "17:00"
-  },
-  "generated_at": "2026-08-28",
+  "last_updated": "2026-09-14",
+  "schedule_cadence": "2x per week (Tuesdays & Fridays)",
   "posts": [
     {
       "date": "2026-09-15",
@@ -41,7 +27,9 @@
       "cta": "Talk to a real KC human.",
       "status": "scheduled",
       "approved": false,
-      "approved_at": null
+      "approved_at": null,
+      "image_path": "assets/w1-p5.png",
+      "image_url": "assets/w1-p5.png"
     },
     {
       "date": "2026-09-18",
@@ -66,7 +54,9 @@
       "cta": "Talk to a real KC human.",
       "status": "scheduled",
       "approved": false,
-      "approved_at": null
+      "approved_at": null,
+      "image_path": "assets/w1-p5.png",
+      "image_url": "assets/w1-p5.png"
     },
     {
       "date": "2026-09-22",
@@ -92,7 +82,9 @@
       "cta": "Book a free home network audit.",
       "status": "scheduled",
       "approved": false,
-      "approved_at": null
+      "approved_at": null,
+      "image_path": "assets/w1-p1.png",
+      "image_url": "assets/w1-p1.png"
     },
     {
       "date": "2026-09-25",
@@ -117,7 +109,9 @@
       "cta": "Book a free home network audit.",
       "status": "scheduled",
       "approved": false,
-      "approved_at": null
+      "approved_at": null,
+      "image_path": "assets/w1-p1.png",
+      "image_url": "assets/w1-p1.png"
     },
     {
       "date": "2026-09-29",
@@ -143,7 +137,9 @@
       "cta": "Get a clean, pro TV install.",
       "status": "scheduled",
       "approved": false,
-      "approved_at": null
+      "approved_at": null,
+      "image_path": "assets/w1-p3.png",
+      "image_url": "assets/w1-p3.png"
     },
     {
       "date": "2026-10-02",
@@ -168,7 +164,9 @@
       "cta": "Get a clean, pro TV install.",
       "status": "scheduled",
       "approved": false,
-      "approved_at": null
+      "approved_at": null,
+      "image_path": "assets/w1-p3.png",
+      "image_url": "assets/w1-p3.png"
     },
     {
       "date": "2026-10-06",
@@ -193,7 +191,9 @@
       "cta": "Book a rack audit.",
       "status": "scheduled",
       "approved": false,
-      "approved_at": null
+      "approved_at": null,
+      "image_path": "assets/w2-p2.png",
+      "image_url": "assets/w2-p2.png"
     },
     {
       "date": "2026-10-09",
@@ -214,7 +214,9 @@
       "cta": "Book a rack audit.",
       "status": "scheduled",
       "approved": false,
-      "approved_at": null
+      "approved_at": null,
+      "image_path": "assets/w2-p2.png",
+      "image_url": "assets/w2-p2.png"
     },
     {
       "date": "2026-10-13",
@@ -239,7 +241,9 @@
       "cta": "Request your SLA proposal.",
       "status": "scheduled",
       "approved": false,
-      "approved_at": null
+      "approved_at": null,
+      "image_path": "assets/w2-p4.png",
+      "image_url": "assets/w2-p4.png"
     },
     {
       "date": "2026-10-16",
@@ -260,7 +264,9 @@
       "cta": "Request your SLA proposal.",
       "status": "scheduled",
       "approved": false,
-      "approved_at": null
+      "approved_at": null,
+      "image_path": "assets/w2-p4.png",
+      "image_url": "assets/w2-p4.png"
     },
     {
       "date": "2026-10-20",
@@ -286,7 +292,9 @@
       "cta": "Put your network on watch.",
       "status": "scheduled",
       "approved": false,
-      "approved_at": null
+      "approved_at": null,
+      "image_path": "assets/w3-p5.png",
+      "image_url": "assets/w3-p5.png"
     },
     {
       "date": "2026-10-23",
@@ -311,7 +319,9 @@
       "cta": "Put your network on watch.",
       "status": "scheduled",
       "approved": false,
-      "approved_at": null
+      "approved_at": null,
+      "image_path": "assets/w3-p5.png",
+      "image_url": "assets/w3-p5.png"
     },
     {
       "date": "2026-10-27",
@@ -337,7 +347,9 @@
       "cta": "Get a security design consult.",
       "status": "scheduled",
       "approved": false,
-      "approved_at": null
+      "approved_at": null,
+      "image_path": "assets/w3-p1.png",
+      "image_url": "assets/w3-p1.png"
     },
     {
       "date": "2026-10-30",
@@ -362,7 +374,9 @@
       "cta": "Get a security design consult.",
       "status": "scheduled",
       "approved": false,
-      "approved_at": null
+      "approved_at": null,
+      "image_path": "assets/w3-p1.png",
+      "image_url": "assets/w3-p1.png"
     },
     {
       "date": "2026-11-03",
@@ -388,7 +402,9 @@
       "cta": "Lock down your access.",
       "status": "scheduled",
       "approved": false,
-      "approved_at": null
+      "approved_at": null,
+      "image_path": "assets/w3-p3.png",
+      "image_url": "assets/w3-p3.png"
     },
     {
       "date": "2026-11-06",
@@ -413,7 +429,9 @@
       "cta": "Lock down your access.",
       "status": "scheduled",
       "approved": false,
-      "approved_at": null
+      "approved_at": null,
+      "image_path": "assets/w3-p3.png",
+      "image_url": "assets/w3-p3.png"
     },
     {
       "date": "2026-11-10",
@@ -438,7 +456,9 @@
       "cta": "Hire a neighbor.",
       "status": "scheduled",
       "approved": false,
-      "approved_at": null
+      "approved_at": null,
+      "image_path": "assets/w4-p2.png",
+      "image_url": "assets/w4-p2.png"
     },
     {
       "date": "2026-11-13",
@@ -459,7 +479,9 @@
       "cta": "Hire a neighbor.",
       "status": "scheduled",
       "approved": false,
-      "approved_at": null
+      "approved_at": null,
+      "image_path": "assets/w4-p2.png",
+      "image_url": "assets/w4-p2.png"
     },
     {
       "date": "2026-11-17",
@@ -484,7 +506,9 @@
       "cta": "Read our reviews.",
       "status": "scheduled",
       "approved": false,
-      "approved_at": null
+      "approved_at": null,
+      "image_path": "assets/w4-p4.png",
+      "image_url": "assets/w4-p4.png"
     },
     {
       "date": "2026-11-20",
@@ -505,8 +529,9 @@
       "cta": "Read our reviews.",
       "status": "scheduled",
       "approved": false,
-      "approved_at": null
+      "approved_at": null,
+      "image_path": "assets/w4-p4.png",
+      "image_url": "assets/w4-p4.png"
     }
-  ],
-  "posting_schedule_note": "Scaled back to 2x/week (Tuesdays & Fridays)"
+  ]
 }
