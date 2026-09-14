@@ -68,6 +68,10 @@ def _parse_dt(date_str: str, time_str: str) -> dt.datetime:
 
 
 def load_calendar() -> dict:
+    approved_queue = os.path.join(HERE, "approved_queue.json")
+    if os.path.exists(approved_queue):
+        with open(approved_queue, encoding="utf-8") as f:
+            return json.load(f)
     with open(CALENDAR, encoding="utf-8") as f:
         return json.load(f)
 

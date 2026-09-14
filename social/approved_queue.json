@@ -1,21 +1,7 @@
 {
   "brand": "SmartByte Group, LLC",
-  "tagline": "Smart Technology. Simplified.",
-  "window_start": "2026-08-28",
-  "window_end": "2026-09-26",
-  "platforms": [
-    "instagram",
-    "facebook",
-    "linkedin",
-    "nextdoor"
-  ],
-  "posting_times": {
-    "instagram": "09:00",
-    "facebook": "11:00",
-    "linkedin": "08:00",
-    "nextdoor": "17:00"
-  },
-  "generated_at": "2026-08-28",
+  "last_updated": "2026-09-14",
+  "schedule_cadence": "2x per week (Tuesdays & Fridays)",
   "posts": [
     {
       "date": "2026-09-15",
@@ -507,6 +493,5 @@
       "approved": false,
       "approved_at": null
     }
-  ],
-  "posting_schedule_note": "Scaled back to 2x/week (Tuesdays & Fridays)"
+  ]
 }

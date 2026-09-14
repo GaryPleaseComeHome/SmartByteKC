@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartByte Command Center — Social Post Approvals</title>
+  <style>
+    :root {
+      --bg-dark: #0B0F19;
+      --card-bg: #111827;
+      --border-color: #1F2937;
+      --accent-green: #10B981;
+      --accent-green-hover: #059669;
+      --text-main: #F9FAFB;
+      --text-muted: #9CA3AF;
+      --tag-ig: #E1306C;
+      --tag-fb: #1877F2;
+      --tag-li: #0A66C2;
+      --tag-nd: #00B246;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      padding: 20px;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--border-color);
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .brand-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-title h1 {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text-main);
+      letter-spacing: -0.5px;
+    }
+    .brand-badge {
+      background: rgba(16, 185, 129, 0.15);
+      color: var(--accent-green);
+      padding: 4px 10px;
+      border-radius: 9999px;
+      font-size: 12px;
+      font-weight: 600;
+      border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+    .stats-bar {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+    .stat-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 12px 18px;
+      border-radius: 8px;
+      flex: 1;
+      min-width: 140px;
+    }
+    .stat-card .label {
+      font-size: 11px;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .stat-card .value {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-top: 4px;
+    }
+    .actions-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+    .filters {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-primary {
+      background-color: var(--accent-green);
+      color: #000;
+    }
+    .btn-primary:hover {
+      background-color: var(--accent-green-hover);
+    }
+    .btn-secondary {
+      background-color: #1F2937;
+      color: var(--text-main);
+      border: 1px solid #374151;
+    }
+    .btn-secondary:hover {
+      background-color: #374151;
+    }
+    .btn-filter {
+      background: transparent;
+      color: var(--text-muted);
+      border: 1px solid var(--border-color);
+    }
+    .btn-filter.active {
+      background: var(--card-bg);
+      color: var(--accent-green);
+      border-color: var(--accent-green);
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 16px;
+    }
+    .post-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 10px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.2s;
+    }
+    .post-card.approved {
+      border-color: rgba(16, 185, 129, 0.5);
+    }
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+    .platform-tag {
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: white;
+    }
+    .platform-instagram { background: var(--tag-ig); }
+    .platform-facebook { background: var(--tag-fb); }
+    .platform-linkedin { background: var(--tag-li); }
+    .platform-nextdoor { background: var(--tag-nd); }
+    .date-tag {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .post-theme {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--accent-green);
+      margin-bottom: 4px;
+    }
+    .post-focus {
+      font-size: 14px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: var(--text-main);
+    }
+    .post-caption {
+      font-size: 13px;
+      color: #D1D5DB;
+      background: rgba(0,0,0,0.2);
+      padding: 10px;
+      border-radius: 6px;
+      margin-bottom: 12px;
+      max-height: 120px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    .post-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .status-indicator {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .status-pending { color: #F59E0B; }
+    .status-approved { color: var(--accent-green); }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="brand-title">
+      <h1>SmartByte Social Command Center</h1>
+      <span class="brand-badge">⚡ 2x/Week Organic Cadence</span>
+    </div>
+    <div style="display:flex; gap:10px;">
+      <button class="btn btn-primary" onclick="approveAll()">⚡ Approve All Posts (1-Click)</button>
+      <button class="btn btn-secondary" onclick="exportData()">💾 Save Queue JSON</button>
+    </div>
+  </div>
+
+  <div class="stats-bar">
+    <div class="stat-card">
+      <div class="label">Total Queue Posts</div>
+      <div class="value" id="stat-total">0</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Approved Posts</div>
+      <div class="value" id="stat-approved" style="color: var(--accent-green);">0</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Pending Approval</div>
+      <div class="value" id="stat-pending" style="color: #F59E0B;">0</div>
+    </div>
+    <div class="stat-card">
+      <div class="label">Schedule Cadence</div>
+      <div class="value" style="font-size: 14px; font-weight: normal; margin-top: 6px; color: var(--accent-green);">
+        Tuesdays & Fridays @ 9:00 AM
+      </div>
+    </div>
+  </div>
+
+  <div class="actions-row">
+    <div class="filters" id="platform-filters">
+      <button class="btn btn-filter active" onclick="filterPlatform('all', this)">All Platforms</button>
+      <button class="btn btn-filter" onclick="filterPlatform('instagram', this)">Instagram</button>
+      <button class="btn btn-filter" onclick="filterPlatform('facebook', this)">Facebook</button>
+      <button class="btn btn-filter" onclick="filterPlatform('linkedin', this)">LinkedIn</button>
+      <button class="btn btn-filter" onclick="filterPlatform('nextdoor', this)">Nextdoor</button>
+    </div>
+    <div class="filters" id="status-filters">
+      <button class="btn btn-filter active" onclick="filterStatus('all', this)">All Statuses</button>
+      <button class="btn btn-filter" onclick="filterStatus('pending', this)">Pending Only</button>
+      <button class="btn btn-filter" onclick="filterStatus('approved', this)">Approved Only</button>
+    </div>
+  </div>
+
+  <div class="grid" id="posts-grid"></div>
+
+  <script>
+    let queueData = {"brand": "SmartByte Group, LLC", "last_updated": "2026-09-14", "schedule_cadence": "2x per week (Tuesdays & Fridays)", "posts": [{"date": "2026-09-15", "day": 1, "weekday": "Fri", "week": 1, "theme": "Residential", "focus": "No more Wi-Fi dead zones", "post_type": "Educational", "platform": "instagram", "time": "09:00", "post_id": "w1-p5", "title": "Vince Answers the Phone", "topic": "Local support", "tone": "Friendly, local", "copy": "When something goes sideways at 8pm, you want a neighbor, not a call center in another time zone. At SmartByte, Vince answers. That's the whole business model.", "hashtags": ["#SmartByteKC", "#KCLocal", "#SupportPlan", "#KansasCity"], "cta": "Talk to a real KC human.", "status": "scheduled", "approved": false, "approved_at": null}, {"date": "2026-09-18", "day": 1, "weekday": "Fri", "week": 1, "theme": "Residential", "focus": "No more Wi-Fi dead zones", "post_type": "Educational", "platform": "facebook", "time": "11:00", "post_id": "w1-p5", "title": "Vince Answers the Phone", "topic": "Local support", "tone": "Friendly, local", "copy": "When something goes sideways at 8pm, you want a neighbor, not a call center in another time zone. At SmartByte, Vince answers. That's the whole business model.", "hashtags": ["#SmartByteKC", "#KCLocal", "#SupportPlan"], "cta": "Talk to a real KC human.", "status": "scheduled", "approved": false, "approved_at": null}, {"date": "2026-09-22", "day": 4, "weekday": "Mon", "week": 2, "theme": "Residential", "focus": "No more Wi-Fi dead zones", "post_type": "Educational", "platform": "instagram", "time": "09:00", "post_id": "w1-p1", "title": "Dead Zones? We Fix That.", "topic": "Wi-Fi dead zones", "tone": "Warm, relatable", "copy": "Dead zones in the living room? Buffering during the big game? We hear you. We're your Kansas City neighbors who happen to be Wi-Fi experts. Get a straight answer and a fast, reliable network.", "hashtags": ["#SmartByteKC", "#KCTech", "#HomeNetworking", "#KansasCity"], "cta": "Book a free home network audit.", "status": "scheduled", "approved": false, "approved_at": null}, {"date": "2026-09-25", "day": 4, "weekday": "Mon", "week": 2, "theme": "Residential", "focus": "No more Wi-Fi dead zones", "post_type": "Educational", "platform": "facebook", "time": "11:00", "post_id": "w1-p1", "title": "Dead Zones? We Fix That.", "topic": "Wi-Fi dead zones", "tone": "Warm, relatable", "copy": "Dead zones in the living room? Buffering during the big game? We hear you. We're your Kansas City neighbors who happen to be Wi-Fi experts. Get a straight answer and a fast, reliable network.", "hashtags": ["#SmartByteKC", "#KCTech", "#HomeNetworking"], "cta": "Book a free home network audit.", "status": "scheduled", "approved": false, "approved_at": null}, {"date": "2026-09-29", "day": 6, "weekday": "Wed", "week": 3, "theme": "Residential", "focus": "No more Wi-Fi dead zones", "post_type": "Educational", "platform": "instagram", "time": "09:00", "post_id": "w1-p3", "title": "Hidden Cables, Clean Walls", "topic": "Concealed TV mounting", "tone": "Warm, reassuring", "copy": "Your home theater, finally wire-free. We mount, conceal, and calibrate \u2014 no spaghetti cables, no guesswork. You just press play.", "hashtags": ["#SmartByteKC", "#HomeTheater", "#KansasCity", "#TVInstall"], "cta": "Get a clean, pro TV install.", "status": "scheduled", "approved": false, "approved_at": null}, {"date": "2026-10-02", "day": 6, "weekday": "Wed", "week": 3, "theme": "Residential", "focus": "No more Wi-Fi dead zones", "post_type": "Educational", "platform": "facebook", "time": "11:00", "post_id": "w1-p3", "title": "Hidden Cables, Clean Walls", "topic": "Concealed TV mounting", "tone": "Warm, reassuring", "copy": "Your home theater, finally wire-free. We mount, conceal, and calibrate \u2014 no spaghetti cables, no guesswork. You just press play.", "hashtags": ["#SmartByteKC", "#HomeTheater", "#KansasCity"], "cta": "Get a clean, pro TV install.", "status": "scheduled", "approved": false, "approved_at": null}, {"date": "2026-10-06", "day": 12, "weekday": "Tue", "week": 4, "theme": "Commercial", "focus": "Infrastructure for scale", "post_type": "Authoritative", "platform": "linkedin", "time": "08:00", "post_id": "w2-p2", "title": "The Rack Cleanup Nobody Asked For", "topic": "Server rack cleanup", "tone": "Authoritative, visual", "copy": "A tangled rack isn't just ugly \u2014 it's a downtime risk. We re-label, re-route, and document your infrastructure so the next outage takes minutes to fix, not hours.", "hashtags": ["#SmartByteKC", "#KCInfrastructure", "#ManagedIT"], "cta": "Book a rack audit.", "status": "scheduled", "approved": false, "approved_at": null}, {"date": "2026-10-09", "day": 12, "weekday": "Tue", "week": 4, "theme": "Commercial", "focus": "Infrastructure for scale", "post_type": "Authoritative", "platform": "nextdoor", "time": "17:00", "post_id": "w2-p2", "title": "The Rack Cleanup Nobody Asked For", "topic": "Server rack cleanup", "tone": "Authoritative, visual", "copy": "A tangled rack isn't just ugly \u2014 it's a downtime risk. We re-label, re-route, and document your infrastructure so the next outage takes minutes to fix, not hours.", "hashtags": [], "cta": "Book a rack audit.", "status": "scheduled", "approved": false, "approved_at": null}, {"date": "2026-10-13", "day": 14, "weekday": "Thu", "week": 5, "theme": "Commercial", "focus": "Infrastructure for scale", "post_type": "Authoritative", "platform": "linkedin", "time": "08:00", "post_id": "w2-p4", "title": "99.9% Uptime, In Writing", "topic": "Managed IT SLA", "tone": "Authoritative, trustworthy", "copy": "99.9% uptime. Contractual SLAs. A dedicated KC point of contact. Managed IT shouldn't feel like a gamble \u2014 it should feel like a safety net you never have to think about.", "hashtags": ["#SmartByteKC", "#ManagedIT", "#KCBusiness"], "cta": "Request your SLA proposal.", "status": "scheduled", "approved": false, "approved_at": null}, {"date": "2026-10-16", "day": 14, "weekday": "Thu", "week": 5, "theme": "Commercial", "focus": "Infrastructure for scale", "post_type": "Authoritative", "platform": "nextdoor", "time": "17:00", "post_id": "w2-p4", "title": "99.9% Uptime, In Writing", "topic": "Managed IT SLA", "tone": "Authoritative, trustworthy", "copy": "99.9% uptime. Contractual SLAs. A dedicated KC point of contact. Managed IT shouldn't feel like a gamble \u2014 it should feel like a safety net you never have to think about.", "hashtags": [], "cta": "Request your SLA proposal.", "status": "scheduled", "approved": false, "approved_at": null}, {"date": "2026-10-20", "day": 15, "weekday": "Fri", "week": 6, "theme": "Security", "focus": "Peace of mind 24/7", "post_type": "Case Study", "platform": "instagram", "time": "09:00", "post_id": "w3-p5", "title": "Your Network, Monitored 24/7", "topic": "Managed network security", "tone": "Reassuring, proactive", "copy": "Firewalls are set-and-forget until they're not. We monitor your network around the clock, patch proactively, and flag threats before they become headlines.", "hashtags": ["#SmartByteKC", "#CyberSecurity", "#KCBusiness", "#ManagedIT"], "cta": "Put your network on watch.", "status": "scheduled", "approved": false, "approved_at": null}, {"date": "2026-10-23", "day": 15, "weekday": "Fri", "week": 6, "theme": "Security", "focus": "Peace of mind 24/7", "post_type": "Case Study", "platform": "facebook", "time": "11:00", "post_id": "w3-p5", "title": "Your Network, Monitored 24/7", "topic": "Managed network security", "tone": "Reassuring, proactive", "copy": "Firewalls are set-and-forget until they're not. We monitor your network around the clock, patch proactively, and flag threats before they become headlines.", "hashtags": ["#SmartByteKC", "#CyberSecurity", "#KCBusiness"], "cta": "Put your network on watch.", "status": "scheduled", "approved": false, "approved_at": null}, {"date": "2026-10-27", "day": 18, "weekday": "Mon", "week": 7, "theme": "Security", "focus": "Peace of mind 24/7", "post_type": "Case Study", "platform": "instagram", "time": "09:00", "post_id": "w3-p1", "title": "Sleep Better. We're Watching.", "topic": "24/7 IP camera monitoring", "tone": "Reassuring, tech-forward", "copy": "Sleep better knowing your business is monitored 24/7. HD 4K IP cameras, designed and installed for total peace of mind. We design the security \u2014 you run the business.", "hashtags": ["#SmartByteKC", "#KCSecurity", "#IPCameras", "#KansasCityBusiness"], "cta": "Get a security design consult.", "status": "scheduled", "approved": false, "approved_at": null}, {"date": "2026-10-30", "day": 18, "weekday": "Mon", "week": 7, "theme": "Security", "focus": "Peace of mind 24/7", "post_type": "Case Study", "platform": "facebook", "time": "11:00", "post_id": "w3-p1", "title": "Sleep Better. We're Watching.", "topic": "24/7 IP camera monitoring", "tone": "Reassuring, tech-forward", "copy": "Sleep better knowing your business is monitored 24/7. HD 4K IP cameras, designed and installed for total peace of mind. We design the security \u2014 you run the business.", "hashtags": ["#SmartByteKC", "#KCSecurity", "#IPCameras"], "cta": "Get a security design consult.", "status": "scheduled", "approved": false, "approved_at": null}, {"date": "2026-11-03", "day": 20, "weekday": "Wed", "week": 8, "theme": "Security", "focus": "Peace of mind 24/7", "post_type": "Case Study", "platform": "instagram", "time": "09:00", "post_id": "w3-p3", "title": "Who's At The Door (Even At 2AM)", "topic": "Access control", "tone": "Reassuring, controlled", "copy": "Door access that logs every entry and locks down on schedule. No lost keys, no copied fobs. Just clean, auditable control over who walks into your building.", "hashtags": ["#SmartByteKC", "#AccessControl", "#KCSecurity", "#KCbusiness"], "cta": "Lock down your access.", "status": "scheduled", "approved": false, "approved_at": null}, {"date": "2026-11-06", "day": 20, "weekday": "Wed", "week": 8, "theme": "Security", "focus": "Peace of mind 24/7", "post_type": "Case Study", "platform": "facebook", "time": "11:00", "post_id": "w3-p3", "title": "Who's At The Door (Even At 2AM)", "topic": "Access control", "tone": "Reassuring, controlled", "copy": "Door access that logs every entry and locks down on schedule. No lost keys, no copied fobs. Just clean, auditable control over who walks into your building.", "hashtags": ["#SmartByteKC", "#AccessControl", "#KCSecurity"], "cta": "Lock down your access.", "status": "scheduled", "approved": false, "approved_at": null}, {"date": "2026-11-10", "day": 26, "weekday": "Tue", "week": 9, "theme": "Local Trust", "focus": "Why choose a KC expert", "post_type": "Humanizing", "platform": "linkedin", "time": "08:00", "post_id": "w4-p2", "title": "Proud to Be 100% KC", "topic": "Local roots", "tone": "Friendly, proud", "copy": "We live here, we work here, we shop here. When you hire SmartByte, the money stays in Kansas City and the tech stays accountable. 100% local, every job.", "hashtags": ["#SmartByteKC", "#ShopLocalKC", "#KansasCity"], "cta": "Hire a neighbor.", "status": "scheduled", "approved": false, "approved_at": null}, {"date": "2026-11-13", "day": 26, "weekday": "Tue", "week": 9, "theme": "Local Trust", "focus": "Why choose a KC expert", "post_type": "Humanizing", "platform": "nextdoor", "time": "17:00", "post_id": "w4-p2", "title": "Proud to Be 100% KC", "topic": "Local roots", "tone": "Friendly, proud", "copy": "We live here, we work here, we shop here. When you hire SmartByte, the money stays in Kansas City and the tech stays accountable. 100% local, every job.", "hashtags": [], "cta": "Hire a neighbor.", "status": "scheduled", "approved": false, "approved_at": null}, {"date": "2026-11-17", "day": 28, "weekday": "Thu", "week": 10, "theme": "Local Trust", "focus": "Why choose a KC expert", "post_type": "Humanizing", "platform": "linkedin", "time": "08:00", "post_id": "w4-p4", "title": "What 5 Stars Actually Means", "topic": "Social proof", "tone": "Friendly, credible", "copy": "'They explained everything and didn't make me feel dumb.' That's the kind of review we chase. Five stars isn't a metric to us \u2014 it's a promise we keep for every KC neighbor.", "hashtags": ["#SmartByteKC", "#KCReviews", "#KansasCity"], "cta": "Read our reviews.", "status": "scheduled", "approved": false, "approved_at": null}, {"date": "2026-11-20", "day": 28, "weekday": "Thu", "week": 10, "theme": "Local Trust", "focus": "Why choose a KC expert", "post_type": "Humanizing", "platform": "nextdoor", "time": "17:00", "post_id": "w4-p4", "title": "What 5 Stars Actually Means", "topic": "Social proof", "tone": "Friendly, credible", "copy": "'They explained everything and didn't make me feel dumb.' That's the kind of review we chase. Five stars isn't a metric to us \u2014 it's a promise we keep for every KC neighbor.", "hashtags": [], "cta": "Read our reviews.", "status": "scheduled", "approved": false, "approved_at": null}]};
+    let currentPlatform = 'all';
+    let currentStatus = 'all';
+
+    function render() {
+      const grid = document.getElementById('posts-grid');
+      grid.innerHTML = '';
+
+      let total = queueData.posts.length;
+      let approved = queueData.posts.filter(p => p.approved).length;
+      let pending = total - approved;
+
+      document.getElementById('stat-total').innerText = total;
+      document.getElementById('stat-approved').innerText = approved;
+      document.getElementById('stat-pending').innerText = pending;
+
+      queueData.posts.forEach((post, index) => {
+        if (currentPlatform !== 'all' && post.platform !== currentPlatform) return;
+        if (currentStatus === 'pending' && post.approved) return;
+        if (currentStatus === 'approved' && !post.approved) return;
+
+        const card = document.createElement('div');
+        card.className = `post-card ${post.approved ? 'approved' : ''}`;
+        card.innerHTML = `
+          <div>
+            <div class="card-meta">
+              <span class="platform-tag platform-${post.platform}">${post.platform}</span>
+              <span class="date-tag">📅 ${post.date} @ ${post.time}</span>
+            </div>
+            <div class="post-theme">W${post.week} • ${post.theme} (${post.post_type})</div>
+            <div class="post-focus">${post.focus}</div>
+            <div class="post-caption">${post.caption ? post.caption.replace(/</g, "&lt;") : "Post content placeholder..."}</div>
+          </div>
+          <div class="post-footer">
+            <span class="status-indicator ${post.approved ? 'status-approved' : 'status-pending'}">
+              ${post.approved ? '✓ APPROVED' : '⏳ PENDING'}
+            </span>
+            <button class="btn ${post.approved ? 'btn-secondary' : 'btn-primary'}" onclick="toggleApprove(${index})">
+              ${post.approved ? 'Undo Approval' : 'Approve Post'}
+            </button>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function toggleApprove(index) {
+      queueData.posts[index].approved = !queueData.posts[index].approved;
+      queueData.posts[index].approved_at = queueData.posts[index].approved ? new Date().toISOString() : null;
+      render();
+    }
+
+    function approveAll() {
+      queueData.posts.forEach(p => {
+        p.approved = true;
+        p.approved_at = new Date().toISOString();
+      });
+      render();
+    }
+
+    function filterPlatform(platform, el) {
+      currentPlatform = platform;
+      document.querySelectorAll('#platform-filters .btn-filter').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+      render();
+    }
+
+    function filterStatus(status, el) {
+      currentStatus = status;
+      document.querySelectorAll('#status-filters .btn-filter').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+      render();
+    }
+
+    function exportData() {
+      const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(queueData, null, 2));
+      const downloadAnchor = document.createElement('a');
+      downloadAnchor.setAttribute("href", dataStr);
+      downloadAnchor.setAttribute("download", "approved_queue.json");
+      document.body.appendChild(downloadAnchor);
+      downloadAnchor.click();
+      downloadAnchor.remove();
+    }
+
+    render();
+  </script>
+</body>
+</html>
